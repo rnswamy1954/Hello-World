@@ -7,11 +7,7 @@
               rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     </head>
 
-    <body style="margin-top: 50px;">
-        <h1>Transmitter Automation over the WEB</h1>
-
-        <h3>Using ESP8266</h3>
-
+    <body>
         <script>
             function api(onOrOff, func) {
                 fetch(`https://api.thingspeak.com/update?api_key=ROKKET7BH1A89IE5&field1=${onOrOff}`)
@@ -49,7 +45,13 @@
             }
         </script>
 
-        <button id="onbtn" type="button" class="btn btn-primary btn-lg" onclick={on(this)}>Tx ON</button>
-        <button id="offbtn" type="button" class="btn btn-primary btn-lg" onclick={off(this)}>Tx OFF</button>
+        <div class="container">
+            <h1>Transmitter Automation over the WEB</h1>
+
+            <h3>Using ESP8266</h3>
+
+            <button id="onbtn" type="button" class="btn btn-primary btn-lg" onclick={on(this)}>Tx ON</button>
+            <button id="offbtn" type="button" class="btn btn-primary btn-lg" onclick={off(this)}>Tx OFF</button>
+        </div>
     </body>
 </html>
