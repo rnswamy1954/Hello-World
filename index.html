@@ -1,42 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\>
+        <title>LED Control</title>
+        <style>html {
+            font-family: Helvetica;
+            display: inline-block;
+            margin: 0px auto;
+            text-align: center;
+        }
 
+        body {
+            margin-top: 50px;
+        }
 
-<!DOCTYPE html> <html>
+        h1 {
+            color: #444444;
+            margin: 50px auto 30px;
+        }
 
-  <head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\>
- <title>LED Control</title>
-  <style>html { font-family: Helvetica; display: inline-block; margin: 0px auto; text-align: center;}
- body{margin-top: 50px;} h1 {color: #444444;margin: 50px auto 30px;} h3 {color: #444444;margin-bottom: 50px;}
+        h3 {
+            color: #444444;
+            margin-bottom: 50px;
+        }
 
- p {font-size: 14px;color: #888;margin-bottom: 10px;}
-  </style>
- </head>
+        p {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 10px;
+        }
 
-<body>
-<h1>Transmitter Automation over the WEB</h1>
-
- <h3>Using ESP8266</h3>
-   <head>
-      <style>
-         .button {
-         background-color: RGB(0,200,0);
-         border: none;
-         color: white;
-         padding: 20px 34px;
-         text-align: center;
-         text-decoration: none;
-         display: inline-block;
-         font-size: 20px;
-         margin: 4px 2px;
-         cursor: pointer;
+        .button {
+             background-color: RGB(0, 200, 0);
+             border: none;
+             color: white;
+             padding: 20px 34px;
+             text-align: center;
+             text-decoration: none;
+             display: inline-block;
+             font-size: 20px;
+             margin: 4px 2px;
+             cursor: pointer;
          }
-      </style>
-   </head>
 
-   <body>
+        </style>
+    </head>
 
-     <a target="_self" href = "https://api.thingspeak.com/update?api_key=ROKKET7BH1A89IE5&field1=0"  class="button" >Transmitter ON</a>
-     <a target="_self" href = "https://api.thingspeak.com/update?api_key=ROKKET7BH1A89IE5&field1=1"  class="button" >Transmitter OFF</a>
-   </body>
+    <body>
+        <h1>Transmitter Automation over the WEB</h1>
 
+        <h3>Using ESP8266</h3>
 
+        <a target="_self"
+           href="https://api.thingspeak.com/update?api_key=ROKKET7BH1A89IE5&field1=0"
+           class="button">Transmitter ON</a>
+        <a target="_self"
+           href="https://api.thingspeak.com/update?api_key=ROKKET7BH1A89IE5&field1=1"
+           class="button">Transmitter OFF</a>
+
+        <script>
+            function api(onOrOff, func) {
+                fetch(`https://api.thingspeak.com/update?api_key=ROKKET7BH1A89IE5&field1=${onOrOff}`)
+                    .then(response => response.text())
+                    .then(data => {
+                        console.log(data); func()
+                    })
+                    .catch((error) => {
+                        console.error('Error:', error);
+                    });
+            }
+
+            function on(btn) {
+                function disableON() {
+                    btn.disabled = true;
+                }
+                api(0, disableON)
+            }
+
+            function off(btn) {
+                function disableOFF() {
+                    btn.disabled = true;
+                }
+                api(1, disableOFF)
+            }
+        </script>
+
+        <button class="button" onclick={on(this)}>Tx ON</button>
+        <button class="button" onclick={off(this)}>Tx OFF</button>
+    </body>
 </html>
