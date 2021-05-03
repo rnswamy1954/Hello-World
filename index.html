@@ -46,12 +46,18 @@
         </script>
 
         <div class="container">
-            <h1>Transmitter Automation over the WEB</h1>
+            <div class="row">
+                <h1>Transmitter Automation over the WEB</h1>
+            </div>
 
-            <h3>Using ESP8266</h3>
+            <div class="row">
+                <h3>Using ESP8266</h3>
+            </div>
 
-            <button id="onbtn" type="button" class="btn btn-primary btn-lg" onclick={on(this)}>Tx ON</button>
-            <button id="offbtn" type="button" class="btn btn-primary btn-lg" onclick={off(this)}>Tx OFF</button>
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <button id="onbtn" type="button" class="btn btn-primary" onclick={on(this)}>Tx ON</button>
+                <button id="offbtn" type="button" class="btn btn-primary" onclick={off(this)}>Tx OFF</button>
+            </div>
         </div>
     </body>
 </html>
