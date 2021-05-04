@@ -9,10 +9,12 @@
 
     <body>
         <script>
-            function api(onOrOff, func) {
+            function api(onOrOff, func)
+            {
                 fetch(`https://api.thingspeak.com/update?api_key=ROKKET7BH1A89IE5&field1=${onOrOff}`)
                     .then(response => response.text())
-                    .then(data => {
+                    .then(data =>
+                    {
                         console.log(data); func()
                     })
                     .catch((error) => {
@@ -20,11 +22,13 @@
                     });
             }
 
-            function timeout(btn) {
-                setTimeout(function(){ btn.disabled = false; }, 20000);
+            function timeout(btn)
+            {
+                setTimeout(function(){ btn.disabled = false; }, 15000);
             }
 
-            function on(btn) {
+            function on(btn)
+            {
                 function disableON() {
                     btn.disabled = true;
                     let offButton = document.getElementById("offbtn");
@@ -34,8 +38,10 @@
                 api(0, disableON)
             }
 
-            function off(btn) {
-                function disableOFF() {
+            function off(btn)
+            {
+                function disableOFF()
+                {
                     btn.disabled = true;
                     let onButton = document.getElementById("onbtn");
                     onButton.disabled = true
