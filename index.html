@@ -57,7 +57,11 @@
             function api(onOrOff, func)
             {
               fetch(`https://api.thingspeak.com/update?api_key=ROKKET7BH1A89IE5&field1=${onOrOff}`)
-              .then(response => response.text())
+              .then(response => response.text()
+              let responseText = await response.text();
+              document.getElementById('result').innerHTML = response.text;
+
+              )
               .then(data =>
                     {
                         console.log(data); func()
@@ -100,7 +104,7 @@
                 }
                 api(1, disableOFF)
              }
- document.getElementById('result').innerHTML = responseText;
+
 
         </script>
 
