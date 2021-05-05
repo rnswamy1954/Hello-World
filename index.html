@@ -37,8 +37,9 @@
               <h1>Transmitter Automation</h1>
               <p>  </p>
 
-              <h3>IoT Application using ESP8266</h3>
+              <h3>IoT Application Using ESP8266</h3>
               <p>  </p>
+
               <p>  </p>
               <p>  </p>
               <p>  </p>
@@ -56,11 +57,7 @@
             function api(onOrOff, func)
             {
               fetch(`https://api.thingspeak.com/update?api_key=ROKKET7BH1A89IE5&field1=${onOrOff}`)
-              .then(response => response.text()
-              let responseText = await response.text();
-              document.getElementById('result').innerHTML = response.text;
-
-              )
+              .then(response => response.text())
               .then(data =>
                     {
                         console.log(data); func()
