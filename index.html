@@ -55,17 +55,16 @@
             {
               fetch(`https://api.thingspeak.com/update?api_key=ROKKET7BH1A89IE5&field1=${onOrOff}`)
               .then(response => response.text())
-
-                    .then(data =>
+              .then(data =>
                     {
                         console.log(data); func()
                      }
-                    )
-                    .catch((error) =>
-                    {
+                  )
+                .catch((error) =>
+                  {
                         console.error('Error:', error);
                      }
-                    );
+                  );
              }
 
             function timeout(btn)
