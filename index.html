@@ -71,18 +71,20 @@
                       console.log(data);
                      }
                     }
-                  );
+                  )
 
                     .then(response => response.text())
 
                     .then(data =>
                     {
                         console.log(data); func()
-                    })
+                     }
+                    )
                     .catch((error) =>
                     {
                         console.error('Error:', error);
-                    });
+                     }
+                    );
              }
 
             function timeout(btn)
