@@ -16,19 +16,19 @@
               div {text-align: center;}
 
               #top, #bottom, #left, #right {
-              	background: #7f0000;
+              	background: #af0000;
               	position: fixed;
               	}
               	#left, #right {
               		top: 0; bottom: 0;
-              		width: 10px;
+              		width: 8px;
               		}
               		#left { left: 0; }
               		#right { right: 0; }
 
               	#top, #bottom {
               		left: 0; right: 0;
-              		height: 10px;
+              		height: 8px;
               		}
               		#top { top: 0; }
               		#bottom { bottom: 0; }
@@ -104,7 +104,7 @@
 
             </div>
 
-            <div class="d-grid gap-2 col-4 mx-auto">
+            <div class="d-grid gap-4 col-2 mx-auto">
                 <button id="onbtn" type="button" class="btn btn-primary" onclick={on(this)}>Tx ON</button>
                 <button id="offbtn" type="button" class="btn btn-primary" onclick={off(this)}>Tx OFF</button>
             </div>
