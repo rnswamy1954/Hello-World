@@ -53,10 +53,8 @@
 
             function api(onOrOff, func)
             {
-                fetch(`https://api.thingspeak.com/update?api_key=ROKKET7BH1A89IE5&field1=${onOrOff}`)
-                .then
-                (
-                    .then(response => response.text())
+              fetch(`https://api.thingspeak.com/update?api_key=ROKKET7BH1A89IE5&field1=${onOrOff}`)
+              .then(response => response.text())
 
                     .then(data =>
                     {
@@ -122,6 +120,9 @@
 
 
 <//////////////////////////////////
+
+.then
+(
 function(response)
 {
   if (response.status === 0)
