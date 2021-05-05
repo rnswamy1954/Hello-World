@@ -54,22 +54,24 @@
             function api(onOrOff, func)
             {
                 fetch(`https://api.thingspeak.com/update?api_key=ROKKET7BH1A89IE5&field1=${onOrOff}`)
-                .then(
-                  function(response) {
-                    if (response.status !== 200) {
+                .then
+                (
+                  function(response)
+                  {
+                    if (response.status === 0)
+                    {
                       console.log('Looks like there was a problem. Status Code: ' +
                         response.status);
                       return;
-                    }
+                     }
 
                     // Examine the text in the response
-                    response.json().then(function(data) {
+                    response.json().then(function(data)
+                    {
                       console.log(data);
-                    });
-                  }
-                )
-
-
+                     }
+                    }
+                  );
 
                     .then(response => response.text())
 
