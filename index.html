@@ -57,7 +57,8 @@
                     {
                         console.log(data); func()
                     })
-                    .catch((error) => {
+                    .catch((error) =>
+                    {
                         console.error('Error:', error);
                     });
              }
@@ -103,7 +104,7 @@
 
             </div>
 
-            <div class="d-grid gap-2 col-6 mx-auto">
+            <div class="d-grid gap-2 col-4 mx-auto">
                 <button id="onbtn" type="button" class="btn btn-primary" onclick={on(this)}>Tx ON</button>
                 <button id="offbtn" type="button" class="btn btn-primary" onclick={off(this)}>Tx OFF</button>
             </div>
