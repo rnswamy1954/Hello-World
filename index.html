@@ -37,7 +37,7 @@
               <h1>Transmitter Automation</h1>
               <p>  </p>
 
-              <h3>IoT Application using ESP8266</h3>
+              <h3>IoT Application Using ESP8266</h3>
               <p>  </p>
 
               <p>  </p>
@@ -48,6 +48,8 @@
     <div id="right"></div>
     <div id="top"></div>
     <div id="bottom"></div>
+
+    <div id="result"></div>
 
     <body>
         <script>
@@ -66,15 +68,7 @@
                         console.error('Error:', error);
                      }
                   );
-
-
              }
-
-
-
-
-
-
 
 
 
@@ -106,7 +100,7 @@
                 }
                 api(1, disableOFF)
              }
-
+ document.getElementById('result').innerHTML = responseText;
 
         </script>
 
@@ -130,6 +124,9 @@
 
 
 <//////////////////////////////////
+
+
+
 
 .then
 (
