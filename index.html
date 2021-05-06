@@ -37,7 +37,7 @@
               <h1>Transmitter Automation</h1>
               <p>  </p>
 
-              <h3>IoT Application Using ESP8266</h3>
+              <h3>IoT Application using ESP8266</h3>
               <p>  </p>
 
               <p>  </p>
@@ -58,7 +58,6 @@
             {
               fetch(`https://api.thingspeak.com/update?api_key=ROKKET7BH1A89IE5&field1=${onOrOff}`)
               .then(response => response.text())
-              .then(response => Response.status())
 
               .then(data =>
                     {
@@ -71,6 +70,10 @@
                      }
                   );
              }
+
+             let text = await response.text(); // read response body as text
+
+             alert(text.slice(0, 20) + 'Testing');
 
 
 
@@ -132,6 +135,15 @@
 
 <//////////////////////////////////
 
+<h1>Authors</h1>
+<ul id="authors"></ul>
+
+
+<script>
+
+    const ul = document.getElementById('authors');
+
+</script>
 
 
 
