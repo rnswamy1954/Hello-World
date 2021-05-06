@@ -37,7 +37,7 @@
               <h1>Transmitter Automation</h1>
               <p>  </p>
 
-              <h3>IoT Application using ESP8266</h3>
+              <h3>IoT Application Using ESP8266</h3>
               <p>  </p>
 
               <p>  </p>
@@ -58,7 +58,6 @@
             {
               fetch(`https://api.thingspeak.com/update?api_key=ROKKET7BH1A89IE5&field1=${onOrOff}`)
               .then(response => response.text())
-
               .then(data =>
                     {
                         console.log(data); func()
@@ -70,6 +69,8 @@
                      }
                   );
              }
+
+
 
             function timeout(btn)
             {
@@ -101,7 +102,6 @@
              }
 
 
-
         </script>
 
         <div class="container">
@@ -118,18 +118,34 @@
                 <button id="offbtn" type="button" class="btn btn-primary" onclick={off(this)}>Tx OFF</button>
             </div>
         </div>
-
-
-        <p>  </p>    <p>  </p>    <p>  </p>
-             <h3>Testing</h3>
-
-
-
     </body>
 </html>
 
-<!
-let text = response.text(); // read response body as text
-alert(text.slice(0, 20) + 'Testing');
+
+
+<//////////////////////////////////
+
+
+
+
+.then
+(
+function(response)
+{
+  if (response.status === 0)
+  {
+    console.log('Looks like there was a problem. Status Code: ' +
+      response.status);
+    return;
+   }
+
+  // Examine the text in the response
+  response.json().then(function(data)
+  {
+    console.log(data);
+   }
+  }
+);
+
 
 >
