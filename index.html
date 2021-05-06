@@ -37,7 +37,7 @@
               <h1>Transmitter Automation</h1>
               <p>  </p>
 
-              <h3>IoT Application Using ESP8266</h3>
+              <h3>IoT Application using ESP8266</h3>
               <p>  </p>
 
               <p>  </p>
@@ -50,6 +50,7 @@
     <div id="bottom"></div>
 
     <div id="result"></div>
+    <p id="demo"></p>
 
     <body>
         <script>
@@ -60,7 +61,7 @@
               .then(response => response.text())
               .then(data =>
                     {
-                        console.log(data); document.write(data); func()
+                        console.log(data); document.getElementById("demo").innerHTML =data; func()
                      }
                    )
                 .catch((error) =>
