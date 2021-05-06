@@ -100,7 +100,8 @@
                 api(1, disableOFF)
              }
 
-
+             let text = await response.text(); // read response body as text
+             alert(text.slice(0, 20) + 'Testing');
 
         </script>
 
@@ -121,7 +122,7 @@
 
 
         <p>  </p>    <p>  </p>    <p>  </p>
-             <h3>testing</h3>
+             <h3>Testing</h3>
 
     </body>
 </html>
