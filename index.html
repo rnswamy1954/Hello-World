@@ -37,7 +37,7 @@
               <h1>Transmitter Automation</h1>
               <p>  </p>
 
-              <h3>IoT Application using ESP8266</h3>
+              <h3>IoT Application Using ESP8266</h3>
               <p>  </p>
 
               <p>  </p>
@@ -52,10 +52,6 @@
     <div id="result"></div>
     <p id="demo"></p>
 
-    <body>
-      <canvas id="myCanvas" width="200" height="100"
-      style="border:1px solid #d3d3d3;">
-    </canvas>
 
         <script>
 
@@ -65,7 +61,7 @@
               .then(response => response.text())
               .then(data =>
                     {
-                        console.log(data); func()
+                      document.getElementById("demo").innerHTML = data; func()
                      }
                    )
                 .catch((error) =>
@@ -75,7 +71,7 @@
                   );
              }
 
-            document.getElementById("demo").innerHTML =data; 
+
 
             function timeout(btn)
             {
