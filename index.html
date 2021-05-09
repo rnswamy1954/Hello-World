@@ -131,8 +131,10 @@
                 }
             })
                 .then(response => {
+                    console.log("0. response = ", response)
                     console.log("1. response = ", response.body)
-                    response.json()
+                    console.log("2. response = ", response.text())
+                    console.log("3. response = ", response.json())
                 })
                 /*.then(json => {
                         console.log("response = ", json)
