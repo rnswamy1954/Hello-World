@@ -124,9 +124,12 @@
         function read() {
             console.log("read called")
             fetch('https://api.thingspeak.com/channels/1371638/feeds.json?api_key=6JM5T4GQ0TCFSGFT&results=2')
-                .then(response => response.json())
+                .then(response => {
+                    console.log("1. response = ", response)
+                    response.json()
+                })
                 .then(json => {
-                        console.log("response = ", response)
+                        console.log("response = ", json)
                     }
                 )
                 .catch((error) => {
