@@ -17,7 +17,7 @@
               <p>  </p> <p>  </p> <p>  </p>   <p>  </p>
 
           <style>
-              #myDIV  /* for inserting a text box for indicating the return value after the write*/
+              #myDIVWriteACK  /* for inserting a text box for indicating the return value after the write*/
               {
                 border: 1px solid black;
                 background-color: lightblue;
@@ -33,26 +33,38 @@
               p {text-align: center;}
               div {text-align: center;}
 
-
-
-
-                div.fixed {
+              #top, #bottom, #left, #right  /* for drawing a border for the web page*/
+              {
+                  background: #df0000;
                   position: fixed;
-                  top:0;
-                  left:200px;
-                  bottom: 0;
-                  right: 0;
-                  width: 900px;
-                  border: 3px solid #73AD21;
-}
+                  }
+                #left, #right
+                {
+                  top: 0px; bottom: 0px;
+                   width: 10px;
+                  }
+                  #left { left: 150px; }
+                  #right { right: 150px; }
+
+                  #top, #bottom
+                  {
+                    left: 150px; right: 150px;
+                    height: 8px;
+                    }
+                  #top { top: 0px; }
+                  #bottom { bottom: 0px; }
+
  </style>
  </head>
 
 
  <body>
 
-
-       <div id="myDIV"></div>
+       <div id="left"></div>
+       <div id="right"></div>
+       <div id="top"></div>
+       <div id="bottom"></div>
+       <div id="myDIVWriteACK"></div>
 
   <script>
 
@@ -62,7 +74,7 @@
               .then(response => response.text())
               .then(data =>
                     {
-                      document.getElementById("myDIV").innerHTML = data; func()
+                      document.getElementById("myDIVWriteACK").innerHTML = data; func()
                      }
                    )
                 .catch((error) =>
