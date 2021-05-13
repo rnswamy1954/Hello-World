@@ -124,7 +124,8 @@
              }
 
 
-
+ function ReadThingSpeakAPI()
+ {
     fetch('https://api.thingspeak.com/channels/1371638/fields/2.json?api_key=6JM5T4GQ0TCFSGFT&results=2')
    .then(response => response.text())
    .then(data =>
@@ -134,7 +135,9 @@
            console.log(data);
           }
         )
+     }
 
+     setInterval(ReadThingSpeakAPI, 5000);
 
 
     </script>
