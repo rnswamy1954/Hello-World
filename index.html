@@ -111,41 +111,6 @@
              }
 
 
-/* /////// Read function  ///////////*/
-
-function startRead() {
-    console.log("startRead called")
-    setInterval(read(), 20000);
-}
-
-function read() {
-console.log("read called")
-fetch('https://api.thingspeak.com/channels/1371638/feeds.json?api_key=6JM5T4GQ0TCFSGFT&results=2', {
-    method: 'GET',
-    mode: 'no-cors'
-    mode: 'no-cors',
-    headers: {
-        'Accept': 'text/html',
-        'Content-Type': 'text/plain',
-        'Referrer-Policy': 'no-referrer'
-        'Content-Type': 'text/plain'
-    }
-})
-    .then(response => {
-        console.log("0. response = ", response)
-        console.log("1. response = ", response.body)
-        console.log("2. response = ", response.text())
-        console.log("3. response = ", response.json())
-    })
-    /*.then(json => {
-            console.log("response = ", json)
-        }
-    )*/
-    .catch((error) => {
-            console.error('Error:', error);
-        }
-    );
-}
 
 
     </script>
