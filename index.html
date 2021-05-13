@@ -130,7 +130,7 @@
    .then(data =>
          {
            var obj = JSON.parse(data);   // Accessing individual value from JS object
-           document.getElementById("myDIVReadData").innerHTML = obj["channel"][feeds]["field2"];
+           document.getElementById("myDIVReadData").innerHTML = obj["channel"][feeds][1]["field2"];
            console.log(data);
           }
         )
