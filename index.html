@@ -28,6 +28,18 @@
                 top: 70px;
               }
 
+              #myDIVReadACK  /* for inserting a text box for indicating the return value after the Read*/
+              {
+                border: 1px solid black;
+                background-color: lightblue;
+                width: 300px;
+                height: 30px;
+                position: relative;
+                left:900px;
+                top: 70px;
+              }
+
+
               h1 {text-align: center;}
               h3 {text-align: center;}
               p {text-align: center;}
@@ -63,6 +75,7 @@
        <div id="top_page"></div>
        <div id="bottom_page"></div>
        <div id="myDIVWriteACK"></div>
+       <div id="myDIVReadACK"></div>
 
   <script>
 
@@ -110,6 +123,13 @@
                 api(1, disableOFF)
              }
 
+   fetch('https://api.thingspeak.com/channels/1371638/feeds.json?api_key=6JM5T4GQ0TCFSGFT&results=2')
+   .then(response => response.text())
+   .then(data =>
+         {
+           document.getElementById("myDIVReadACK").innerHTML = data;
+          }
+        )
 
 
 
