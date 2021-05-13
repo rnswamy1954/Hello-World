@@ -28,15 +28,15 @@
                 top: 70px;
               }
 
-              #myDIVReadACK  /* for inserting a text box for indicating the return value after the Read*/
+              #myDIVReadData  /* for inserting a text box for indicating the return value after the Read*/
               {
                 border: 1px solid black;
                 background-color: lightblue;
                 width: 100px;
                 height: 30px;
                 position: relative;
-                left:100px;
-                top: 0px;
+                left:950px;
+                top: 80px;
               }
 
 
@@ -75,7 +75,7 @@
        <div id="top_page"></div>
        <div id="bottom_page"></div>
        <div id="myDIVWriteACK"></div>
-       <div id="myDIVReadACK"></div>
+       <div id="myDIVReadData"></div>
 
   <script>
 
@@ -129,7 +129,7 @@
    .then(response => response.text())
    .then(data =>
          {
-           document.getElementById("myDIVReadACK").innerHTML = data;
+           document.getElementById("myDIVReadACKData").innerHTML = data;
            console.log(data);
           }
         )
