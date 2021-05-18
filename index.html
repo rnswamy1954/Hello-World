@@ -79,6 +79,23 @@
 
   <script>
 
+    function ReadThingSpeakAPI()  // reads the relay status
+    {
+       fetch('https://api.thingspeak.com/channels/1371638/fields/2.json?api_key=6JM5T4GQ0TCFSGFT&results=2')
+      .then(response => response.text())
+      .then(data =>
+            {
+              var obj = JSON.parse(data);   // Accessing individual value from JS object
+              document.getElementById("myDIVReadData").innerHTML = obj["feeds"][1]["field2"];
+              console.log(data);
+             }
+           )
+        }
+
+       setInterval(ReadThingSpeakAPI, 15000);
+
+   ///////////////////////////////////////////////////
+
             function API_TX_Switch(onOrOff, func)
             {
               fetch(`https://api.thingspeak.com/update?api_key=FYHD918T4ZH50R1A&field1=${onOrOff}`)
@@ -131,22 +148,7 @@
 
   /////////////////////////////////////
 
- function ReadThingSpeakAPI()
- {
-    fetch('https://api.thingspeak.com/channels/1371638/fields/2.json?api_key=6JM5T4GQ0TCFSGFT&results=2')
-   .then(response => response.text())
-   .then(data =>
-         {
-           var obj = JSON.parse(data);   // Accessing individual value from JS object
-           document.getElementById("myDIVReadData").innerHTML = obj["feeds"][1]["field2"];
-           console.log(data);
-          }
-        )
-     }
 
-    setInterval(ReadThingSpeakAPI, 15000);
-
-///////////////////////////////////////////////////
 
     </script>
 
@@ -157,7 +159,7 @@
     <div class="row"></div>
 
         <div class="d-grid gap-4 col-2 mx-auto">
-            <button id="onbtn" type="button" class="btn btn-primary btn-lg" onclick={TxSwitchON(this)}>Tx ON</button>
+            <button id="onbtn" type="button" class="btn btn-primary" onclick={TxSwitchON(this)}>Tx ON</button>
             <button id="offbtn" type="button" class="btn btn-primary" onclick={TxSwitchOFF(this)}>Tx OFF</button>
         </div>
     </div>
