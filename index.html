@@ -79,38 +79,41 @@
 
   <script>
 
-            function api(onOrOff, func) // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+            function API(onOrOff, func) // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
             {
               fetch(`https://api.thingspeak.com/update?api_key=FYHD918T4ZH50R1A&field1=${onOrOff}`)
               .then(response => response.text())
               .then(data => { document.getElementById("myDIVWriteACK").innerHTML = data; func() })
               .catch((error) => { console.error('Error:', error); });
-             }
+              }
 
-            function timeout(btn) { setTimeout(function(){ btn.disabled = false; }, 15000);}
-
-            function on(btn)
+            function Timeout(btn)
             {
-                function disableON()
+              setTimeout(function(){ btn.disabled = false; }, 15000);
+              }
+
+            function ON(btn)
+            {
+                function DisableON()
                 {
                     btn.disabled = true;
                     let offButton = document.getElementById("offbtn");
                     offButton.disabled = true
-                    timeout(offButton);
+                    Timeout(offButton);
                 }
-                api(0, disableON)
+                API(0, disableON)
              }
 
-            function off(btn)
+            function OFF(btn)
             {
-                function disableOFF()
+                function DisableOFF()
                 {
                     btn.disabled = true;
                     let onButton = document.getElementById("onbtn");
                     onButton.disabled = true
-                    timeout(onButton);
+                    Timeout(onButton);
                 }
-                api(1, disableOFF)
+                API(1, DisableOFF)
              }
 
 
