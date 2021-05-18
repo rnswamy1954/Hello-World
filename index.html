@@ -83,21 +83,11 @@
             {
               fetch(`https://api.thingspeak.com/update?api_key=FYHD918T4ZH50R1A&field1=${onOrOff}`)
               .then(response => response.text())
-              .then(data =>
-                    {
-                      document.getElementById("myDIVWriteACK").innerHTML = data; func()
-                     }
-                   )
-                .catch((error) =>
-                  {
-                        console.error('Error:', error);
-                     }
-                  );
+              .then(data => { document.getElementById("myDIVWriteACK").innerHTML = data; func() })
+              .catch((error) => { console.error('Error:', error); });
              }
-            function timeout(btn)
-            {
-                setTimeout(function(){ btn.disabled = false; }, 15000);
-             }
+
+            function timeout(btn) { setTimeout(function(){ btn.disabled = false; }, 15000);}
 
             function on(btn)
             {
