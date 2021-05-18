@@ -79,7 +79,7 @@
 
   <script>
 
-            function api(onOrOff, func) // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+            function api(onOrOff, func)
             {
               fetch(`https://api.thingspeak.com/update?api_key=FYHD918T4ZH50R1A&field1=${onOrOff}`)
               .then(response => response.text())
@@ -94,14 +94,15 @@
                      }
                   );
              }
-
+//////////////////////
 
             function timeout(btn)
             {
                 setTimeout(function(){ btn.disabled = false; }, 15000);
              }
 
-
+///////////////////////
+/*
 
             function on(btn)
             {
@@ -115,6 +116,7 @@
                 api(0, disableON)
              }
 
+///////////////////////////
             function off(btn)
             {
                 function disableOFF()
@@ -126,7 +128,8 @@
                 }
                 api(1, disableOFF)
              }
-
+             */
+             /////////////////////////////////////
 
  function ReadThingSpeakAPI()
  {
@@ -142,10 +145,11 @@
      }
 
     setInterval(ReadThingSpeakAPI, 15000);
-//    setInterval(functionAPI, 15000);
-
+//    setInterval(functionAPI, 15000)
 
     </script>
+
+
 
     <div class="container">
         <div class="row">
