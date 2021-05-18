@@ -106,8 +106,10 @@
 
           function TxSwitchON(btn)
             {
-                api(0, disableON);
+              api(0, disableON);
 
+              if(data !=0)
+              {
                 function disableON()
                 {
                     btn.disabled = true;
@@ -115,13 +117,16 @@
                     offButton.disabled = true
                     timeout(offButton);
                 }
+              }
              }
 
 ///////////////////////////
             function TxSwitchOFF(btn)
             {
-                api(1, disableOFF);
-                
+              api(1, disableOFF);
+
+              if(data !=0)
+              {
                 function disableOFF()
                 {
                     btn.disabled = true;
@@ -129,7 +134,7 @@
                     onButton.disabled = true
                     timeout(onButton);
                 }
-
+              }
              }
 
   /////////////////////////////////////
