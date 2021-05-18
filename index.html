@@ -85,35 +85,35 @@
               .then(response => response.text())
               .then(data => { document.getElementById("myDIVWriteACK").innerHTML = data; func() })
               .catch((error) => { console.error('Error:', error); });
-              }
+             }
 
-            function Timeout(btn)
+            function timeout(btn)
             {
               setTimeout(function(){ btn.disabled = false; }, 15000);
-              }
+            }
 
-            function ON(btn)
+            function on(btn)
             {
-                function DisableON()
+                function disableON()
                 {
                     btn.disabled = true;
                     let offButton = document.getElementById("offbtn");
                     offButton.disabled = true
-                    Timeout(offButton);
+                    timeout(offButton);
                 }
                 API(0, disableON)
              }
 
-            function OFF(btn)
+            function off(btn)
             {
-                function DisableOFF()
+                function disableOFF()
                 {
                     btn.disabled = true;
                     let onButton = document.getElementById("onbtn");
                     onButton.disabled = true
-                    Timeout(onButton);
+                    timeout(onButton);
                 }
-                API(1, DisableOFF)
+                API(1, disableOFF)
              }
 
 
