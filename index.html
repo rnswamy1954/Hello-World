@@ -79,7 +79,7 @@
 
   <script>
 
-            function api(onOrOff, func)
+            function API_TX_Switch(onOrOff, func)
             {
               fetch(`https://api.thingspeak.com/update?api_key=FYHD918T4ZH50R1A&field1=${onOrOff}`)
               .then(response => response.text())
@@ -106,10 +106,6 @@
 
           function TxSwitchON(btn)
             {
-              api(0, disableON);
-
-              if(data !=0)
-              {
                 function disableON()
                 {
                     btn.disabled = true;
@@ -117,16 +113,12 @@
                     offButton.disabled = true
                     timeout(offButton);
                 }
-              }
+                API_TX_Switch(0, disableON)
              }
 
 ///////////////////////////
             function TxSwitchOFF(btn)
             {
-              api(1, disableOFF);
-
-              if(data !=0)
-              {
                 function disableOFF()
                 {
                     btn.disabled = true;
@@ -134,7 +126,7 @@
                     onButton.disabled = true
                     timeout(onButton);
                 }
-              }
+                API_TX_Switch(1, disableOFF)
              }
 
   /////////////////////////////////////
@@ -153,6 +145,8 @@
      }
 
     setInterval(ReadThingSpeakAPI, 15000);
+    
+///////////////////////////////////////////////////
 
     </script>
 
