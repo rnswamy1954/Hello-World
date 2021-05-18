@@ -94,26 +94,26 @@
 
             function on(btn)
             {
-                function DisableON()
+                function disableON()
                 {
                     btn.disabled = true;
                     let offButton = document.getElementById("offbtn");
                     offButton.disabled = true
                     Timeout(offButton);
                 }
-                API(0, DisableON)
+                API(0, disableON)
              }
 
             function off(btn)
             {
-                function DisableOFF()
+                function disableOFF()
                 {
                     btn.disabled = true;
                     let onButton = document.getElementById("onbtn");
                     onButton.disabled = true
                     Timeout(onButton);
                 }
-                API(1, DisableOFF)
+                API(1, disableOFF)
              }
 
 
