@@ -87,7 +87,7 @@
               .catch((error) => { console.error('Error:', error); });
              }
 
-            function timeout(btn)
+            function Timeout(btn)
             {
               setTimeout(function(){ btn.disabled = false; }, 15000);
             }
@@ -99,7 +99,7 @@
                     btn.disabled = true;
                     let offButton = document.getElementById("offbtn");
                     offButton.disabled = true
-                    timeout(offButton);
+                    Timeout(offButton);
                 }
                 API(0, disableON)
              }
@@ -111,7 +111,7 @@
                     btn.disabled = true;
                     let onButton = document.getElementById("onbtn");
                     onButton.disabled = true
-                    timeout(onButton);
+                    Timeout(onButton);
                 }
                 API(1, disableOFF)
              }
