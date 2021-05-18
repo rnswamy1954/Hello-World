@@ -79,7 +79,7 @@
 
   <script>
 
-            function API(onOrOff, func) // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+            function api(onOrOff, func) // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
             {
               fetch(`https://api.thingspeak.com/update?api_key=FYHD918T4ZH50R1A&field1=${onOrOff}`)
               .then(response => response.text())
@@ -101,7 +101,7 @@
                     offButton.disabled = true
                     timeout(offButton);
                 }
-                API(0, disableON)
+                api(0, disableON)
              }
 
             function off(btn)
@@ -113,7 +113,7 @@
                     onButton.disabled = true
                     timeout(onButton);
                 }
-                API(1, disableOFF)
+                api(1, disableOFF)
              }
 
 
