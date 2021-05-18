@@ -102,10 +102,12 @@
              }
 
 ///////////////////////
-        if(data != 0)
-        {
+
+
           function TxSwitchON(btn)
             {
+                api(0, disableON);
+
                 function disableON()
                 {
                     btn.disabled = true;
@@ -113,12 +115,13 @@
                     offButton.disabled = true
                     timeout(offButton);
                 }
-                api(0, disableON)
              }
 
 ///////////////////////////
             function TxSwitchOFF(btn)
             {
+                api(1, disableOFF);
+                
                 function disableOFF()
                 {
                     btn.disabled = true;
@@ -126,9 +129,9 @@
                     onButton.disabled = true
                     timeout(onButton);
                 }
-                api(1, disableOFF)
+
              }
-        }
+
   /////////////////////////////////////
 
  function ReadThingSpeakAPI()
