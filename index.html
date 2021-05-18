@@ -88,12 +88,16 @@
                       document.getElementById("myDIVWriteACK").innerHTML = data; func()
                      }
                    )
-                .catch((error) => console.error('Error:', error););
-
+                .catch((error) =>
+                  {
+                        console.error('Error:', error);
+                     }
+                  );
              }
-
-            function timeout(btn) setTimeout(function(){ btn.disabled = false; }, 15000);
-
+            function timeout(btn)
+            {
+                setTimeout(function(){ btn.disabled = false; }, 15000);
+             }
 
             function on(btn)
             {
