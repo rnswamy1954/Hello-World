@@ -79,7 +79,7 @@
 
   <script>
 
-    setInterval(ReadThingSpeakAPI, 15000);// reads the ThingSpeak cloud once every 15 seconds for the data
+
 
     function ReadThingSpeakAPI()  // reads the status of channel-2 to channel-5...
     {
@@ -94,6 +94,8 @@
              }
            )
         }
+
+      setInterval(ReadThingSpeakAPI, 15000);// reads the ThingSpeak cloud once every 15 seconds for the data
 
 ///////////////////////////////////////////////////
 
