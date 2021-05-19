@@ -92,7 +92,6 @@
 
   <script>
 
-    var obj;
 
     function ReadThingSpeakAPI()
     {
@@ -100,7 +99,7 @@
       .then(response => response.text())
       .then(data =>
             {
-              obj = JSON.parse(data);   // Accessing individual value from JS object
+              var obj = JSON.parse(data);   // Accessing individual value from JS object
               document.getElementById("myDIVReadData").innerHTML = obj["feeds"][1]["field2"];
 
               console.log(data);
