@@ -90,12 +90,12 @@
               var obj = JSON.parse(data);   // Accessing individual value from JS object
               document.getElementById("myDIVReadData").innerHTML = obj["feeds"][1]["field2"];
               console.log(data);
-              alert(obj["feeds"][1]["field2"]);
+              document.write(obj["feeds"][1]["field2"]);
              }
            )
         }
 
-      setInterval(ReadThingSpeakAPI, 15000);// reads the ThingSpeak cloud once every 15 seconds for the data
+      setInterval(ReadThingSpeakAPI, 15500);// reads the ThingSpeak cloud once every 15.5 seconds for the data
 
 ///////////////////////////////////////////////////
 
@@ -118,7 +118,7 @@
 
             function timeout(btn)
             {
-                setTimeout(function(){ btn.disabled = false; }, 15000);
+                setTimeout(function(){ btn.disabled = false; }, 15500);
              }
 
 ///////////////////////
