@@ -81,7 +81,7 @@
 
   <script>
 
-  global var ReadDataChannel_1;
+  var ReadDataChannel_1;
 
     function ReadThingSpeakAPI()
     {
@@ -94,11 +94,12 @@
               console.log(data);
               ReadDataChannel_1 = obj["feeds"][1]["field2"];
               console.log(ReadDataChannel_1);
-            //  alert(ReadDataChannel_1);
+            //  alert(ReadDataChannel_1);  // This works
              }
            )
         }
-     alert(ReadDataChannel_1);
+     alert(ReadDataChannel_1);//  This does not work!!! Eventhough, this variable is declared as Global..
+
        setInterval(ReadThingSpeakAPI, 15500);
 
 
