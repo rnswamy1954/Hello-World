@@ -92,7 +92,7 @@
 
   <script>
 
-    var ReadAck = "OK";
+    var obj;
 
     function ReadThingSpeakAPI()
     {
@@ -100,7 +100,7 @@
       .then(response => response.text())
       .then(data =>
             {
-              var obj = JSON.parse(data);   // Accessing individual value from JS object
+              obj = JSON.parse(data);   // Accessing individual value from JS object
               document.getElementById("myDIVReadData").innerHTML = obj["feeds"][1]["field2"];
 
               console.log(data);
@@ -109,7 +109,7 @@
         }
 
 
-       document.getElementById("demo").innerHTML = ReadAck;
+       document.getElementById("demo").innerHTML = obj["feeds"][1]["field2"];
        setInterval(ReadThingSpeakAPI, 15500);
 
 
