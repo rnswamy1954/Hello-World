@@ -79,7 +79,9 @@
 
   <script>
 
-    function ReadThingSpeakAPI()  // reads the relay status
+    setInterval(ReadThingSpeakAPI, 15000);// reads the ThingSpeak cloud once every 15 seconds for the data
+
+    function ReadThingSpeakAPI()  // reads the status of channel-2 to channel-5...
     {
        fetch('https://api.thingspeak.com/channels/1371638/fields/2.json?api_key=6JM5T4GQ0TCFSGFT&results=2')
       .then(response => response.text())
@@ -91,13 +93,9 @@
               alert(obj["feeds"][1]["field2"]);
              }
            )
-
         }
 
-
-     setInterval(ReadThingSpeakAPI, 15000);
-
-   ///////////////////////////////////////////////////
+///////////////////////////////////////////////////
 
             function API_TX_Switch(onOrOff, func)
             {
