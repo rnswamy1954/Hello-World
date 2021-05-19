@@ -105,10 +105,11 @@
               console.log(data);
              }
            )
+           return obj["feeds"][1]["field2"];
         }
 
 
-  //     document.getElementById("demo").innerHTML = obj["feeds"][1]["field2"];
+       document.getElementById("demo").innerHTML = ReadThingSpeakAPI();
        setInterval(ReadThingSpeakAPI, 15500);
 
 
