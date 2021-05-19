@@ -77,12 +77,11 @@
        <div id="myDIVWriteACK"></div>
        <div id="myDIVReadData"></div>
 
-  var ReadDataChannel_1;
+
 
   <script>
 
-
-
+  var ReadDataChannel_1;
 
     function ReadThingSpeakAPI()
     {
@@ -95,6 +94,7 @@
               console.log(data);
               ReadDataChannel_1 = obj["feeds"][1]["field2"];
               console.log(ReadDataChannel_1);
+              alert(ReadDataChannel_1);
              }
            )
         }
