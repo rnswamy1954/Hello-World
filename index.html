@@ -77,6 +77,8 @@
        <div id="myDIVWriteACK"></div>
        <div id="myDIVReadData"></div>
 
+       <p id="demo"></p>
+
   <script>
 
     var ack;
@@ -92,13 +94,16 @@
               ack = obj["feeds"][1]["field2"];
               console.log(data);
             //  alert(ack);
+            return ack;
              }
            )
         }
 
        setInterval(ReadThingSpeakAPI, 15500);
 
-alert(ack);
+       document.getElementById("demo").innerHTML = ReadThingSpeakAPI();
+
+
 
    ///////////////////////////////////////////////////
 
