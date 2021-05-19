@@ -93,12 +93,12 @@
               document.getElementById("myDIVReadData").innerHTML = obj["feeds"][1]["field2"];
               console.log(data);
               ReadDataChannel_1 = obj["feeds"][1]["field2"];
-              console.log(ReadDataChannel_1);
+              console.log(ReadDataChannel_1);// This works
             //  alert(ReadDataChannel_1);  // This works
              }
            )
         }
-     alert(ReadDataChannel_1);//  This does not work!!! Eventhough, this variable is declared as Global..
+     alert(ReadDataChannel_1);//  This does not work!!! It says it as undefined, eventhough, the variable is declared as Global..
 
        setInterval(ReadThingSpeakAPI, 15500);
 
