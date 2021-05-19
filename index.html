@@ -80,7 +80,7 @@
 
   <script>
 
-  var xx;
+  var ReadDataChannel_1;
 
     function ReadThingSpeakAPI()
     {
@@ -91,13 +91,14 @@
               var obj = JSON.parse(data);   // Accessing individual value from JS object
               document.getElementById("myDIVReadData").innerHTML = obj["feeds"][1]["field2"];
               console.log(data);
-              xx = obj["feeds"][1]["field2"];
-              console.log(xx);
+              ReadDataChannel_1 = obj["feeds"][1]["field2"];
+              console.log(ReadDataChannel_1);
              }
            )
         }
 
        setInterval(ReadThingSpeakAPI, 15500);
+       alert(ReadDataChannel_1);
 
 
 
