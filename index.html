@@ -77,6 +77,7 @@
        <div id="myDIVWriteACK"></div>
        <div id="myDIVReadData"></div>
 
+    <button type="TestButton" onclick="alert(ReadDataChannel_1)">Click Me</button>
 
 
   <script>
@@ -93,7 +94,7 @@
               document.getElementById("myDIVReadData").innerHTML = obj["feeds"][1]["field2"];
               console.log(data);
               ReadDataChannel_1 = obj["feeds"][1]["field2"];
-          //    console.log(ReadDataChannel_1);// This works
+              console.log(ReadDataChannel_1);// This works
             //  alert(ReadDataChannel_1);  // This works
              }
            )
@@ -101,8 +102,7 @@
 
        setInterval(ReadThingSpeakAPI, 15500);
 
-    //  alert(ReadDataChannel_1);//  This does not work!!!
-     console.log(ReadDataChannel_1);// This works
+
 
 
    ///////////////////////////////////////////////////
