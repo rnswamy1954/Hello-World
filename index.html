@@ -81,8 +81,8 @@
 
   <script>
 
-  var ReadDataChannel_1 = 99;
-  var FirstCycle =0;
+  var ReadDataChannel_1 = 0;
+
 
     function ReadThingSpeakAPI()
     {
@@ -96,14 +96,13 @@
               ReadDataChannel_1 = obj["feeds"][1]["field2"];
               console.log(ReadDataChannel_1);// This works
             //  alert(ReadDataChannel_1);  // This works
-            FirstCycle = 1;
              }
            )
         }
 
        setInterval(ReadThingSpeakAPI, 15500);
 
-      if(FirstCycle == 1) alert(ReadDataChannel_1);//  This does not work!!!
+      alert(ReadDataChannel_1);//  This does not work!!!
 
 
 
