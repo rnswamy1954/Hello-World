@@ -77,12 +77,14 @@
        <div id="myDIVWriteACK"></div>
        <div id="myDIVReadData"></div>
 
-    <button type="TestButton" onclick="alert(ReadDataChannel_1)">Click Me</button>
 
 
   <script>
 
-  var ReadDataChannel_1 = 0;
+  setInterval(ReadThingSpeakAPI, 15000);// Event driven timer for fetching the data from ThingSpeak
+
+
+  var Channel_1_ContactorStatus = 0;
 
     function ReadThingSpeakAPI()
     {
@@ -93,14 +95,11 @@
               var obj = JSON.parse(data);   // Accessing individual value from JS object
               document.getElementById("myDIVReadData").innerHTML = obj["feeds"][1]["field2"];
               console.log(data);
-              ReadDataChannel_1 = obj["feeds"][1]["field2"];
-              console.log(ReadDataChannel_1);// This works
-            //  alert(ReadDataChannel_1);  // This works
+              Channel_1_ContactorStatus = obj["feeds"][1]["field2"];
+              console.log(Channel_1_ContactorStatus);
              }
            )
         }
-
-       setInterval(ReadThingSpeakAPI, 15500);
 
 
 
@@ -131,7 +130,6 @@
 
 ///////////////////////
 
-
           function TxSwitchON(btn)
             {
                 function disableON()
@@ -156,10 +154,6 @@
                 }
                 API_TX_Switch(1, disableOFF)
              }
-
-  /////////////////////////////////////
-
-
 
     </script>
 
