@@ -92,6 +92,8 @@
   {
    alert("init");
     ReadThingSpeakAPI();
+    if(Channel_1_ContactorStatus ==0) document.getElementById("onbtn").disabled = false;// enables the button
+     else document.getElementById("offbtn").disabled = false;// enables the button
     }
 
     function ReadThingSpeakAPI()
@@ -162,7 +164,7 @@
                 API_TX_Switch(1, disableOFF)
              }
 
-//document.getElementById("onbtn").disabled = true;// disables the button
+//
 //document.getElementById("onbtn").disabled = false;// enabling the button
 
 
