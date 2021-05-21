@@ -127,6 +127,19 @@
 
    ///////////////////////////////////////////////////
 
+   function TxSwitchON(btn)
+     {
+       API_TX_Switch(0, disableON);
+      }
+
+      function TxSwitchOFF(btn)
+        {
+          API_TX_Switch(1, disableON);
+         }
+
+
+
+
             function API_TX_Switch(onOrOff, func)
             {
               fetch(`https://api.thingspeak.com/update?api_key=FYHD918T4ZH50R1A&field1=${onOrOff}`)
