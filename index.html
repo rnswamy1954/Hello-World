@@ -96,8 +96,8 @@
 
     function ButtonEnableDisable()
     {
-      if(Channel_1_ContactorStatus ==1) document.getElementById("onbtn").disabled = false;// enables the button
-       else document.getElementById("offbtn").disabled = false;// enables the button
+      if(Channel_1_ContactorStatus ==1) document.getElementById("offbtn").disabled = false;// enables the button
+       else if(Channel_1_ContactorStatus ==0)document.getElementById("onbtn").disabled = false;// enables the button
     }
 
     function ReadThingSpeakAPI()
