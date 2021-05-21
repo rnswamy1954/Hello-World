@@ -127,28 +127,28 @@
 
    ///////////////////////////////////////////////////
 
-   function TxSwitchON(btn)
+   function TxSwitchON()
      {
-       API_TX_Switch(0, 0);
+       API_TX_Switch(0);
        alert("ON function");
       }
 
-      function TxSwitchOFF(btn)
+      function TxSwitchOFF()
         {
-          API_TX_Switch(1, 0);
+          API_TX_Switch(1);
           alert("OFF function");
          }
 
 
 
 
-            function API_TX_Switch(onOrOff, func)
+            function API_TX_Switch(onOrOff)
             {
               fetch(`https://api.thingspeak.com/update?api_key=FYHD918T4ZH50R1A&field1=${onOrOff}`)
               .then(response => response.text())
               .then(data =>
                     {
-                      document.getElementById("myDIVWriteACK").innerHTML = data; func()
+                      document.getElementById("myDIVWriteACK").innerHTML = data; 
                      }
                    )
                 .catch((error) =>
