@@ -127,17 +127,8 @@
 
    ///////////////////////Writing to ThingSpeak////////////////////////////
 
-
-           function TxSwitchON()
-           {
-             setTimeout(API_TX_Switch(0),15000);
-            }
-
-
-           function TxSwitchOFF()
-           {
-             setTimeout(API_TX_Switch(1),15000); 
-            }
+           function TxSwitchON() { API_TX_Switch(0); }
+           function TxSwitchOFF() { API_TX_Switch(1); }
 
             function API_TX_Switch(onOrOff)
             {
