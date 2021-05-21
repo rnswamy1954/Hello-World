@@ -10,7 +10,7 @@
               <! Download Bootstrap to get the compiled CSS and JavaScript, source code, or include it with your favorite package managers like npm, RubyGems, and more.>
 
               <p>  </p>
-              <h1>Transmitter Automation</h1>
+              <h2>Transmitter Automation</h2>
               <p>  </p>
 
               <h3>IoT Cloud Application using ThingSpeak platform</h3>
@@ -134,12 +134,12 @@
             {
                 function disableON()
                 {
-              //      btn.disabled = true;
-              //      let offButton = document.getElementById("offbtn");
+                    btn.disabled = true;
+                    let offButton = document.getElementById("offbtn");
                 //    offButton.disabled = true
-                //    timeout(offButton);
+                    timeout(offButton);
                 }
-            //    API_TX_Switch(0, disableON)
+                API_TX_Switch(0, disableON)
              }
 
 ///////////////////////////
@@ -147,12 +147,12 @@
             {
                 function disableOFF()
                 {
-              //      btn.disabled = true;
-              //      let onButton = document.getElementById("onbtn");
-                //    onButton.disabled = true
-              //      timeout(onButton);
+                    btn.disabled = true;
+                    let onButton = document.getElementById("onbtn");
+                    onButton.disabled = true
+                    timeout(onButton);
                 }
-            //    API_TX_Switch(1, disableOFF)
+                API_TX_Switch(1, disableOFF)
              }
 
     </script>
@@ -165,8 +165,9 @@
 
         <div class="d-grid gap-4 col-2 mx-auto">
             <button id="onbtn" type="button" class="btn btn-primary" onclick={TxSwitchON(this)}>Tx ON</button>
-            <button id="offbtn" type="button" class="btn btn-primary" onclick={TxSwitchOFF(this)}>Tx OFF</button>
+            <button id="offbtn" type="button" class="btn btn-secondary" onclick={TxSwitchOFF(this)}>Tx OFF</button>
         </div>
     </div>
+
 </body>
 </html>
