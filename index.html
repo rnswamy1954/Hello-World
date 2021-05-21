@@ -83,9 +83,9 @@
 
   var Channel_1_ContactorStatus = 0;
 
-  setInterval(ReadThingSpeakAPI, 2);// Required in the beginning
+  setTimeout(ReadThingSpeakAPI, 2);// Required in the beginning, only ONCE
 
-//  setInterval(ReadThingSpeakAPI, 15000);// Event driven timer for fetching the data from the  ThingSpeak
+  setInterval(ReadThingSpeakAPI, 15);// Event driven REPEAT timer for fetching the data from the ThingSpeak
 
 
     function ReadThingSpeakAPI()
