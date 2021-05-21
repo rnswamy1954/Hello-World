@@ -144,6 +144,26 @@
              }
 //////////////////////
 
+
+
+    </script>
+
+
+
+
+    <div class="container">
+    <div class="row"></div>
+
+        <div class="d-grid gap-4 col-2 mx-auto">
+            <button id="onbtn" type="button" class="btn btn-primary" disabled onclick={TxSwitchON(this)}>Tx ON</button>
+            <button id="offbtn" type="button" class="btn btn-primary" disabled onclick={TxSwitchOFF(this)}>Tx OFF</button>
+        </div>
+    </div>
+</body>
+</html>
+
+<!
+//////////////////////////////
             function timeout(btn)
             {
                 setTimeout(function(){ btn.disabled = false; }, 15000);
@@ -177,36 +197,6 @@
              }
 
 
-    </script>
 
-
-
-
-    <div class="container">
-    <div class="row"></div>
-
-        <div class="d-grid gap-4 col-2 mx-auto">
-            <button id="onbtn" type="button" class="btn btn-primary" disabled onclick={TxSwitchON(this)}>Tx ON</button>
-            <button id="offbtn" type="button" class="btn btn-primary" disabled onclick={TxSwitchOFF(this)}>Tx OFF</button>
-        </div>
-    </div>
-</body>
-</html>
-
-<!
-
-
-///////////////////////////
-            function TxSwitchOFF(btn)
-            {
-                function disableOFF()
-                {
-                    btn.disabled = true;
-                    let onButton = document.getElementById("onbtn");
-                    onButton.disabled = true
-                    timeout(onButton);
-                }
-                API_TX_Switch(1, disableOFF)
-             }
 
 >
