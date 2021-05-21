@@ -84,10 +84,15 @@
 
   var Channel_1_ContactorStatus = 0;
 
-  setTimeout(ReadThingSpeakAPI, 2);// Required in the beginning, only ONCE
+  setTimeout(Init, 2);// Required to intialize the button depending on the switch status, only ONCE
 
   setInterval(ReadThingSpeakAPI, 1000);// Event driven REPEAT timer for fetching the data from the ThingSpeak
 
+  function Init()
+  {
+   alert{"init"};
+    ReadThingSpeakAPI();
+    }
 
     function ReadThingSpeakAPI()
     {
