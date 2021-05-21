@@ -127,20 +127,8 @@
 
    ///////////////////////////////////////////////////
 
-   function TxSwitchON()
-     {
-       API_TX_Switch(0);
-       alert("ON function");
-      }
-
-      function TxSwitchOFF()
-        {
-          API_TX_Switch(1);
-          alert("OFF function");
-         }
-
-
-
+           function TxSwitchON() { API_TX_Switch(0); }
+           function TxSwitchOFF() { API_TX_Switch(1); }
 
             function API_TX_Switch(onOrOff)
             {
@@ -148,7 +136,7 @@
               .then(response => response.text())
               .then(data =>
                     {
-                      document.getElementById("myDIVWriteACK").innerHTML = data; 
+                      document.getElementById("myDIVWriteACK").innerHTML = data;
                      }
                    )
                 .catch((error) =>
@@ -157,9 +145,6 @@
                      }
                   );
              }
-//////////////////////
-
-
 
     </script>
 
