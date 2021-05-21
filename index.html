@@ -91,6 +91,9 @@
 
     function ReadThingSpeakAPI()
     {
+      offButton.disabled = true;
+      onButton.disabled = true;
+
        fetch('https://api.thingspeak.com/channels/1371638/feeds.json?api_key=6JM5T4GQ0TCFSGFT&results=2')
       .then(response => response.text())
       .then(data =>
@@ -126,9 +129,7 @@
 
             function timeout(btn)
             {
-              //  setTimeout(function(){ btn.disabled = false; }, 15000);
-
-               btn.disabled = false; 
+                setTimeout(function(){ btn.disabled = false; }, 15000);
              }
 
 ///////////////////////
