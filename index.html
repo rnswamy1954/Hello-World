@@ -92,9 +92,6 @@
     function ReadThingSpeakAPI()
     {
 
-        document.getElementById("onbtn").disabled = true;
-        document.getElementById("offbtn").disabled = true;
-
        fetch('https://api.thingspeak.com/channels/1371638/feeds.json?api_key=6JM5T4GQ0TCFSGFT&results=2')
       .then(response => response.text())
       .then(data =>
@@ -160,6 +157,9 @@
                 API_TX_Switch(1, disableOFF)
              }
 
+//document.getElementById("onbtn").disabled = true;// disables the button
+
+
     </script>
 
 
@@ -169,8 +169,8 @@
     <div class="row"></div>
 
         <div class="d-grid gap-4 col-2 mx-auto">
-            <button id="onbtn" type="button" class="btn btn-primary" onclick={TxSwitchON(this)}>Tx ON</button>
-            <button id="offbtn" type="button" class="btn btn-primary" onclick={TxSwitchOFF(this)}>Tx OFF</button>
+            <button id="onbtn" type="button" class="btn btn-primary" disabled onclick={TxSwitchON(this)}>Tx ON</button>
+            <button id="offbtn" type="button" class="btn btn-primary" disabled onclick={TxSwitchOFF(this)}>Tx OFF</button>
         </div>
     </div>
 </body>
