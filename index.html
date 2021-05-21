@@ -96,13 +96,12 @@
 
     function ButtonEnableDisable()
     {
-      if(Channel_1_ContactorStatus ==1) document.getElementById("offbtn").disabled = false;// enables the button
-       else if(Channel_1_ContactorStatus ==0)document.getElementById("onbtn").disabled = false;// enables the button
+      if(Channel_1_ContactorStatus ==1) document.getElementById("offbtn").disabled = false;// enables the OFF button
+       else if(Channel_1_ContactorStatus ==0)document.getElementById("onbtn").disabled = false;// enables the ON button
     }
 
     function ReadThingSpeakAPI()
     {
-
        fetch('https://api.thingspeak.com/channels/1371638/feeds.json?api_key=6JM5T4GQ0TCFSGFT&results=2')
       .then(response => response.text())
       .then(data =>
@@ -112,6 +111,7 @@
               console.log(data);
               Channel_1_ContactorStatus = obj["feeds"][1]["field2"];
               console.log(Channel_1_ContactorStatus);
+              ButtonEnableDisable();
              }
            )
         }
