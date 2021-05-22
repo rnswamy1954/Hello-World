@@ -126,7 +126,7 @@
        <div id="myDIVWriteACK"></div>
        <div id="myDIVReadData"></div>
 
-  
+
        <!-- The Modal -->
        <div id="myModal" class="modal">
 
@@ -220,9 +220,9 @@
 
             function API_TX_Switch(onOrOff)
             {
-              $(document).ready(function(){
-              		$("#myModal").modal('show');
-              	});
+//              $(document).ready(function(){
+//              		$("#myModal").modal('show');
+//              	});
 
               fetch(`https://api.thingspeak.com/update?api_key=FYHD918T4ZH50R1A&field1=${onOrOff}`)
               .then(response => response.text())
