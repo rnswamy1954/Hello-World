@@ -132,6 +132,7 @@
 
             function API_TX_Switch(onOrOff)
             {
+              setTimeout("alert('hello world');", 1);            
               fetch(`https://api.thingspeak.com/update?api_key=FYHD918T4ZH50R1A&field1=${onOrOff}`)
               .then(response => response.text())
               .then(data =>
@@ -145,8 +146,7 @@
                      }
                   );
 
-                  window.setTimeout('alert("Message goes here");window.close();', 5000);
-             }
+                }
 
     </script>
 
