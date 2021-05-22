@@ -140,12 +140,10 @@
 
 
   <script>
-/*
+
     // Get the modal
     var modal = document.getElementById("myModal");
 
-    // Get the button that opens the modal
-    var btn = document.getElementById("myBtn");
 
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
@@ -167,7 +165,7 @@
       }
     }
 
-*/
+
 
 
         var Channel_1_ContactorStatus = 0;
@@ -220,9 +218,9 @@
 
             function API_TX_Switch(onOrOff)
             {
-//              $(document).ready(function(){
-//              		$("#myModal").modal('show');
-//              	});
+              $(document).ready(function(){
+             		$("#myModal").modal('show');
+              	});
 
               fetch(`https://api.thingspeak.com/update?api_key=FYHD918T4ZH50R1A&field1=${onOrOff}`)
               .then(response => response.text())
