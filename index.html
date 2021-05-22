@@ -66,7 +66,7 @@
        <div id="top_page"></div>
        <div id="bottom_page"></div>
        <div id="myDIVTxPowerStatus"></div>
-       
+
 
 
 
@@ -105,10 +105,16 @@
             .then(data =>
                   {
                     var obj = JSON.parse(data);   // Accessing individual value from JS object
-                    document.getElementById("myDIVTxPowerStatus").innerHTML = obj["feeds"][1]["field2"];
+                  //  document.getElementById("myDIVTxPowerStatus").innerHTML = obj["feeds"][1]["field2"];
                     console.log(data);
                     Channel_1_ContactorStatus = obj["feeds"][1]["field2"];
                     console.log(Channel_1_ContactorStatus);
+
+                    if(Channel_1_ContactorStatus == 1) document.getElementById("myDIVTxPowerStatus").innerHTML = "Transmitter is OFF"; 
+                     else if(Channel_1_ContactorStatus == 0) document.getElementById("myDIVTxPowerStatus").innerHTML = "Transmitter is ON";
+
+
+
                     ButtonEnableDisable();
                    }
                  )
