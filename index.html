@@ -92,7 +92,7 @@
 
 
        <div class="bs-example">
-           <div id="myModal" class="modal fade" tabindex="-1">
+           <div id="WaitModal" class="modal fade" tabindex="-1">
                <div class="modal-dialog">
                    <div class="modal-content">
                        <div class="modal-header">
@@ -102,8 +102,7 @@
                        <div class="modal-body">
                            <p>WAIT!!  Command being uploaded to Cloud</p>
                        </div>
-                       <div class="modal-footer">
-                       </div>
+
                    </div>
                </div>
            </div>
@@ -162,7 +161,7 @@
             function API_TX_Switch(onOrOff)
             {
               $(document).ready(function(){
-            		$("#myModal").modal('show');
+            		$("#WaitModal").modal('show');
             	});
 
               fetch(`https://api.thingspeak.com/update?api_key=FYHD918T4ZH50R1A&field1=${onOrOff}`)
