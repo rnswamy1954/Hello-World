@@ -18,18 +18,8 @@
               <p>  </p> <p>  </p> <p>  </p>   <p>  </p>
 
           <style>
-              #myDIVTxPowerStatus  /* for inserting a text box for indicating the status of the power to the transmitter*/
-              {
-                border: 1px solid black;
-                background-color: lightblue;
-                width: 100px;
-                height: 30px;
-                position: relative;
-                left:800px;
-                top: 80px;
-              }
 
-              #myDIVReadData  /* for inserting a text box for indicating the return value after the Read*/
+              #myDIVTxPowerStatus  /* for inserting a text box for indicating the return value after the Read*/
               {
                 border: 1px solid black;
                 background-color: lightblue;
@@ -76,7 +66,7 @@
        <div id="top_page"></div>
        <div id="bottom_page"></div>
        <div id="myDIVTxPowerStatus"></div>
-       <div id="myDIVReadData"></div>
+       
 
 
 
@@ -115,7 +105,7 @@
             .then(data =>
                   {
                     var obj = JSON.parse(data);   // Accessing individual value from JS object
-                    document.getElementById("myDIVReadData").innerHTML = obj["feeds"][1]["field2"];
+                    document.getElementById("myDIVTxPowerStatus").innerHTML = obj["feeds"][1]["field2"];
                     console.log(data);
                     Channel_1_ContactorStatus = obj["feeds"][1]["field2"];
                     console.log(Channel_1_ContactorStatus);
@@ -136,7 +126,7 @@
               .then(response => response.text())
               .then(data =>
                     {
-                      document.getElementById("myDIVTxPowerStatus").innerHTML = data;
+  //                    document.getElementById("myDIVTxPowerStatus").innerHTML = data;
                       if(data==0)alert("Command failed.  Retry once again after 15 seconds");
                        else alert("Command Success!! Wait for 15 seconds for switching")
                      }
