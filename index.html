@@ -24,9 +24,9 @@
                 border: 1px solid black;
                 background-color: lightblue;
                 width: 150px;
-                height: 40px;
+                height: 30px;
                 position: relative;
-                left:570px;
+                left:560px;
                 top: 200px;
               }
 
@@ -110,7 +110,7 @@
                     Channel_1_ContactorStatus = obj["feeds"][1]["field2"];
                     console.log(Channel_1_ContactorStatus);
 
-                    if(Channel_1_ContactorStatus == 1) document.getElementById("myDIVTxPowerStatus").innerHTML = "Transmitter is OFF"; 
+                    if(Channel_1_ContactorStatus == 1) document.getElementById("myDIVTxPowerStatus").innerHTML = "Transmitter is OFF";
                      else if(Channel_1_ContactorStatus == 0) document.getElementById("myDIVTxPowerStatus").innerHTML = "Transmitter is ON";
 
 
