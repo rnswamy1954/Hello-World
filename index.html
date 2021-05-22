@@ -150,6 +150,8 @@
                     if(Channel_1_ContactorStatus == 1) document.getElementById("myDIVTxPowerStatus").innerHTML = "Transmitter is OFF";
                      else if(Channel_1_ContactorStatus == 0) document.getElementById("myDIVTxPowerStatus").innerHTML = "Transmitter is ON";
 
+                    document.getElementById("myDIVTemperatureStatus").innerHTML = obj["feeds"][1]["field3"];
+                    document.getElementById("myDIVRHStatus").innerHTML = obj["feeds"][1]["field4"];
 
 
                     ButtonEnableDisable();
