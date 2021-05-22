@@ -102,11 +102,13 @@
                        <div class="modal-body">
                            <p>WAIT!!  Command being uploaded to Cloud</p>
                        </div>
-
+                       <div class="modal-footer">
+                       </div>
                    </div>
                </div>
            </div>
        </div>
+
 
   <script>
 
@@ -160,15 +162,17 @@
 
             function API_TX_Switch(onOrOff)
             {
-              $(document).ready(function(){
-            		$("#WaitModal").modal('show');
-            	});
+              //(document).ready(function(){
+            	//	$("#WaitModal").modal('show');
+            //	});
 
               fetch(`https://api.thingspeak.com/update?api_key=FYHD918T4ZH50R1A&field1=${onOrOff}`)
               .then(response => response.text())
               .then(data =>
                     {
                       document.getElementById("myDIVWriteACK").innerHTML = data;
+                      if(data==1)alert("Command failed.  Retry once again after 15 seconds");
+                       if(dat==0)alert("Command Success!!")
                      }
                    )
                 .catch((error) =>
