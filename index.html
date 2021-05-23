@@ -1,240 +1,144 @@
 <!DOCTYPE html>
 <html>
-  <head>
-        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\> <!For resizing to the screen of mobile>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>ThingSpeak IoT Cloud</title>
+    <title>ThingSpeak IoT Cloud</title>
 
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
-              rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-              <! Download Bootstrap to get the compiled CSS and JavaScript, source code, or include it with your favorite package managers like npm, RubyGems, and more.>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous">
 
+    <style>
+        .top-buffer {
+            margin-top: 60px;
+        }
+    </style>
 
+    <script>
 
-              <p>  </p><p>  </p> <p>  </p> <p>  </p>   <p>  </p>
-              <h2>Transmitter Automation</h2>
-              <p>  </p> <p>  </p> <p>  </p> <p>  </p>   <p>  </p>
-
-              <h3>IoT Cloud Application using ThingSpeak platform</h3>
-              <p>  </p> <p>  </p> <p>  </p>   <p>  </p>
-
-          <style>
-
-
-
-              #myDIVTxPowerStatus  /* for inserting a text box for indicating the status of the Transmitter power*/
-              {
-                border: 1px solid black; background-color: red; width: 150px;height: 30px; position: relative;left:565px;top: 22px;
-              }
-
-              #myDIVStatusText  /* for inserting the text status*/
-              {
-                border: 1px light gray;background-color: white; width: 175px; height: 30px;position: relative; left:380px;top: 0px;
-              }
-
-              #myDIVTemperatureStatus  /* for inserting a text box for indicating the status of the Transmitter power*/
-              {
-                border: 1px solid black; background-color: light green; width: 150px;height: 30px; position: relative;left:565px;top: 72px;
-              }
-
-              #myDIVTemperatureText  /* for inserting the text status*/
-              {
-                border: 1px light gray;background-color: white; width: 175px; height: 30px;position: relative; left:380px;top: 50px;
-              }
-
-              #myDIVRHStatus  /* for inserting a text box for indicating the status of the Transmitter power*/
-              {
-                border: 1px solid black; background-color: light green; width: 150px;height: 30px; position: relative;left:565px;top: 82px;
-              }
-
-              #myDIVRHText  /* for inserting the text status*/
-              {
-                border: 1px light gray;background-color: white; width: 175px; height: 30px;position: relative; left:380px;top: 60px;
-              }
-
-              h1 {text-align: center;}
-              h2 {text-align: center;}
-              h3 {text-align: center;}
-              p {text-align: center;}
-              div {text-align: center;}
-
-              #top_page, #bottom_page, #left_page, #right_page  /* for drawing a border for the web page*/
-              {
-                  background: #df0000;
-                  position: fixed;
-                  }
-                #left_page, #right_page
-                {
-                  top: 0px; bottom: 0px;
-                   width: 10px;
-                  }
-                  #left_page { left: 150px; }
-                  #right_page { right: 150px; }
-
-                  #top_page, #bottom_page
-                  {
-                    left: 150px; right: 150px;
-                    height: 8px;
-                    }
-                  #top_page { top: 0px; }
-                  #bottom_page { bottom: 0px; }
- </style>
- </head>
-
- <body>
-
-   <div class="container">
-       <div class="column">
-       </div>
-
-
-       <div class="d-grid gap-4 col-2 mx-auto">
-           <button id="onbtn" type="button" class="btn btn-primary"  disabled onclick={TxSwitchON(this)}>Tx ON</button>
-           <button id="offbtn" type="button" class="btn btn-primary" disabled onclick={TxSwitchOFF(this)}>Tx OFF</button>
-       </div>
-   </div>
-
-       <div id="left_page"></div>
-       <div id="right_page"></div>
-       <div id="top_page"></div>
-       <div id="bottom_page"></div>
-       <div id="myDIVTxPowerStatus"></div>
-       <div id="myDIVStatusText"></div>
-       <div id="myDIVTemperatureStatus"></div>
-       <div id="myDIVTemperatureText"></div>
-       <div id="myDIVRHStatus"></div>
-       <div id="myDIVRHText"></div>
-
-
-
-
-  <script>
-
-    .selector-for-some-widget {
-      box-sizing: content-box;
-    }
-
-        var Channel_1_ContactorStatus = 0;
+        let Channel_1_ContactorStatus = 0;
 
         setTimeout(Init, 2);// Required to intialize the button depending on the switch status, only ONCE
 
         setInterval(ReadThingSpeakAPI, 1000);// Event driven REPEAT timer for fetching the data from the ThingSpeak
 
-        function Init()
-        {
-          ReadThingSpeakAPI();
-          ButtonEnableDisable();
-          document.getElementById("myDIVStatusText").innerHTML = "TRANSMITTER STATUS";
-          document.getElementById("myDIVTemperatureText").innerHTML = "Ambient temperature";
-          document.getElementById("myDIVRHText").innerHTML = "Relative Humidity";
-          }
+        function Init() {
+            ReadThingSpeakAPI();
+            ButtonEnableDisable();
+        }
 
-          function ButtonEnableDisable()
-          {
-            if(Channel_1_ContactorStatus == 0)
-            {
-             document.getElementById("offbtn").disabled = false;// enables the OFF button
-             document.getElementById("onbtn").disabled = true;// disables the ON button
-             }
-             else if(Channel_1_ContactorStatus == 1)
-             {
-              document.getElementById("onbtn").disabled = false;// enables the ON button
-              document.getElementById("offbtn").disabled = true;// disables the OFF button
+        function ButtonEnableDisable() {
+            if (Channel_1_ContactorStatus == 0) {
+                document.getElementById("offbtn").disabled = false;// enables the OFF button
+                document.getElementById("onbtn").disabled = true;// disables the ON button
+            } else if (Channel_1_ContactorStatus == 1) {
+                document.getElementById("onbtn").disabled = false;// enables the ON button
+                document.getElementById("offbtn").disabled = true;// disables the OFF button
             }
-          }
+        }
 
-          function ReadThingSpeakAPI()
-          {
-             fetch('https://api.thingspeak.com/channels/1371638/feeds.json?api_key=6JM5T4GQ0TCFSGFT&results=2')
-            .then(response => response.text())
-            .then(data =>
-                  {
-                    var obj = JSON.parse(data);   // Accessing individual value from JS object
-                  //  document.getElementById("myDIVTxPowerStatus").innerHTML = obj["feeds"][1]["field2"];
-                    console.log(data);
-                    Channel_1_ContactorStatus = obj["feeds"][1]["field2"];
-                    console.log(Channel_1_ContactorStatus);
+        function ReadThingSpeakAPI() {
+            fetch('https://api.thingspeak.com/channels/1371638/feeds.json?api_key=6JM5T4GQ0TCFSGFT&results=2')
+                .then(response => response.text())
+                .then(data => {
+                        const obj = JSON.parse(data);   // Accessing individual value from JS object
+                        //  document.getElementById("txPowerStatus").innerHTML = obj["feeds"][1]["field2"];
+                        console.log(data);
+                        Channel_1_ContactorStatus = obj["feeds"][1]["field2"];
+                        console.log(Channel_1_ContactorStatus);
 
-                    if(Channel_1_ContactorStatus == 1) document.getElementById("myDIVTxPowerStatus").innerHTML = "Transmitter is OFF";
-                     else if(Channel_1_ContactorStatus == 0) document.getElementById("myDIVTxPowerStatus").innerHTML = "Transmitter is ON";
+                        if (Channel_1_ContactorStatus == 1) document.getElementById("txPowerStatus").innerHTML = "Transmitter is OFF";
+                        else if (Channel_1_ContactorStatus == 0) document.getElementById("txPowerStatus").innerHTML = "Transmitter is ON";
 
-                    document.getElementById("myDIVTemperatureStatus").innerHTML = obj["feeds"][1]["field3"];
-                    document.getElementById("myDIVRHStatus").innerHTML = obj["feeds"][1]["field4"];
+                        document.getElementById("tempStatus").innerHTML = obj["feeds"][1]["field3"];
+                        document.getElementById("rhStatus").innerHTML = obj["feeds"][1]["field4"];
 
-
-                    ButtonEnableDisable();
-                   }
-                 )
-              }
+                        ButtonEnableDisable();
+                    }
+                )
+        }
 
 
-   ///////////////////////Writing to ThingSpeak////////////////////////////
+        ///////////////////////Writing to ThingSpeak////////////////////////////
 
-           function TxSwitchON() { API_TX_Switch(0); }
-           function TxSwitchOFF() { API_TX_Switch(1); }
+        function TxSwitchON() {
+            API_TX_Switch(0);
+        }
 
-            function API_TX_Switch(onOrOff)
-            {
-              fetch(`https://api.thingspeak.com/update?api_key=FYHD918T4ZH50R1A&field1=${onOrOff}`)
-              .then(response => response.text())
-              .then(data =>
-                    {
-  //                    document.getElementById("myDIVTxPowerStatus").innerHTML = data;
-                      if(data==0)alert("Command failed.  Retry once again after 20 seconds");
-                       else alert("Command Success!! Wait for 20 seconds for the switching to take place")
-                     }
-                   )
-                .catch((error) =>
-                  {
+        function TxSwitchOFF() {
+            API_TX_Switch(1);
+        }
+
+        function API_TX_Switch(onOrOff) {
+            fetch(`https://api.thingspeak.com/update?api_key=FYHD918T4ZH50R1A&field1=${onOrOff}`)
+                .then(response => response.text())
+                .then(data => {
+                        //                    document.getElementById("txPowerStatus").innerHTML = data;
+                        if (data === 0) alert("Command failed.  Retry once again after 20 seconds");
+                        else alert("Command Success!! Wait for 20 seconds for the switching to take place")
+                    }
+                )
+                .catch((error) => {
                         console.error('Error:', error);
-                     }
-                  );
+                    }
+                );
 
-                }
+        }
 
     </script>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
 
 
+<div class="container">
+    <div class="row top-buffer">
+        <div class="col">
+            <h1 class="display-1 text-center">Transmitter Automation</h1>
+            <h1 class="display-6 text-center">IoT Cloud Application using ThingSpeak platform</h1>
+        </div>
+    </div>
+    <div class="row top-buffer">
+        <div class="col">
+            <div class="d-grid gap-4 col-2 mx-auto">
+                <button id="onbtn" type="button" class="btn btn-primary" disabled onclick={TxSwitchON(this)}>TURN
+                    Transmitter ON
+                </button>
+                <button id="offbtn" type="button" class="btn btn-primary" disabled onclick={TxSwitchOFF(this)}>TURN
+                    Transmitter OFF
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="row top-buffer">
+        <div class="col"></div>
+        <div class="col">
+            <table class="table">
+                <tbody>
+                <tr class="table-danger">
+                    <th scope="row">Transmitter Status</th>
+                    <td id="txPowerStatus"></td>
+                </tr>
+                <tr class="table-warning">
+                    <th scope="row">Ambient Temperature</th>
+                    <td id="tempStatus"></td>
+                </tr>
+                <tr class="table-info">
+                    <th scope="row">Relative Humidity</th>
+                    <td id="rhStatus"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
+<footer class="footer py-3 bg-light mt-auto">
+    <div class="container text-center">
+        <span class="text-muted">Built by Varpas Technologies</span>
+    </div>
+</footer>
 </body>
 </html>
-
-<!
-//////////////////////////////
-
-
-            function timeout(btn)
-            {
-                setTimeout(function(){ btn.disabled = false; }, 15000);
-             }
-
-///////////////////////
-
-          function TxSwitchON(btn)
-            {
-                function disableON()
-                {
-                    btn.disabled = true;
-                    let offButton = document.getElementById("offbtn");
-                    offButton.disabled = false;
-                    timeout(offButton);
-                }
-                API_TX_Switch(0, disableON);
-             }
-
-///////////////////////////
-            function TxSwitchOFF(btn)
-            {
-                function disableOFF()
-                {
-                    btn.disabled = true;
-                    let onButton = document.getElementById("onbtn");
-                    onButton.disabled = true
-                    timeout(onButton);
-                }
-                API_TX_Switch(1, disableOFF)
-             }
-
-
-
-
->
