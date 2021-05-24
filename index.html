@@ -45,12 +45,12 @@
                 .then(data => {
                         const obj = JSON.parse(data);   // Accessing individual value from JS object
                         //  document.getElementById("txPowerStatus").innerHTML = obj["feeds"][1]["field2"];
-                        //console.log(data);
+                        console.log(data);
                         Channel_1_ContactorStatus = obj["feeds"][1]["field2"];
-                      //  console.log(Channel_1_ContactorStatus);
+                        console.log(Channel_1_ContactorStatus);
 
                         if (Channel_1_ContactorStatus == 1) document.getElementById("txPowerStatus").innerHTML = "Transmitter is OFF";
-                          else if (Channel_1_ContactorStatus == 0) document.getElementById("txPowerStatus").innerHTML = "Transmitter is ON";
+                        else if (Channel_1_ContactorStatus == 0) document.getElementById("txPowerStatus").innerHTML = "Transmitter is ON";
 
                         document.getElementById("tempStatus").innerHTML = obj["feeds"][1]["field3"];
                         document.getElementById("rhStatus").innerHTML = obj["feeds"][1]["field4"];
@@ -75,10 +75,9 @@
             fetch(`https://api.thingspeak.com/update?api_key=FYHD918T4ZH50R1A&field1=${onOrOff}`)
                 .then(response => response.text())
                 .then(data => {
-                        // document.getElementById("txPowerStatus").innerHTML = data;
-                        console.log(data);
+                        //                    document.getElementById("txPowerStatus").innerHTML = data;
                         if (data === 0) alert("Command failed.  Retry once again after 20 seconds");
-                          else alert("Command Success!! Wait for 20 seconds for the switching to take place")
+                        else alert("Command Success!! Wait for 20 seconds for the switching to take place")
                     }
                 )
                 .catch((error) => {
@@ -90,10 +89,6 @@
 
     </script>
 </head>
-
-
-
-
 
 <body class="d-flex flex-column min-vh-100">
 
@@ -142,7 +137,7 @@
 </div>
 <footer class="footer py-3 bg-light mt-auto">
     <div class="container text-center">
-        <span class="text-muted">Built by Varpas Media Technologies Pvt Ltd</span>
+        <span class="text-muted">Built by Varpas Media Technologies</span>
     </div>
 </footer>
 </body>
