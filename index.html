@@ -76,7 +76,7 @@
                 .then(response => response.text())
                 .then(write_data => {
                         // document.getElementById("txPowerStatus").innerHTML = data;
-                      //   console.log(data);
+                         console.log(write_data);
                         if (write_data === 0) alert("Command failed.  Retry once again after 20 seconds");
                           else if(write_data !=0) alert("Command Success!! Wait for 20 seconds for the switching to take place")
                     }
