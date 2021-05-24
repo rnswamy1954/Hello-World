@@ -60,6 +60,8 @@
 
                         var Temp2 = obj["feeds"][1]["field4"];
                         Temp2 = Math.round((Temp2*100000)/100000);
+                        if(Temp2 == 0)Temp2 = PrevTemp2;
+                         else var PrevTemp2 = Temp2;
                         var Temp3 = " %";
                         var Temp2 = Temp2 + " " + Temp3;
 
