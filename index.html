@@ -53,7 +53,7 @@
                         else if (Channel_1_ContactorStatus == 0) document.getElementById("txPowerStatus").innerHTML = "Transmitter is ON";
 
                         var Temp = obj["feeds"][1]["field3"];
-                        Temp = Math.round(Temp*1000)/1000;
+                        Temp = Math.round(Temp*100000)/100000;
 
                         document.getElementById("tempStatus").innerHTML = Temp;
                         document.getElementById("rhStatus").innerHTML = obj["feeds"][1]["field4"];
