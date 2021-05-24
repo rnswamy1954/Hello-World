@@ -59,8 +59,8 @@
                         Temp2 = Math.round(Temp2*1000)/1000;
 
 
-                        document.getElementById("tempStatus").innerHTML = Temp1;
-                        document.getElementById("rhStatus").innerHTML = Temp2;
+                        document.getElementById("tempStatus").innerHTML = Math.round(Temp1*1000)/1000;
+                        document.getElementById("rhStatus").innerHTML = Math.round(Temp2*1000)/1000;
 
                         ButtonEnableDisable();
                     }
