@@ -46,18 +46,21 @@
                         const obj = JSON.parse(data);   // Accessing individual value from JS object
                         //  document.getElementById("txPowerStatus").innerHTML = obj["feeds"][1]["field2"];
                     //    console.log(data);
-                        Channel_1_ContactorStatus = obj["feeds"][1]["field2"];
+                        Channel_1_ContactorStatus = obj["feeds"][1]["field2"];// status of the power contactor
                     //    console.log(Channel_1_ContactorStatus);
 
                         if (Channel_1_ContactorStatus == 1) document.getElementById("txPowerStatus").innerHTML = "Transmitter is OFF";
                         else if (Channel_1_ContactorStatus == 0) document.getElementById("txPowerStatus").innerHTML = "Transmitter is ON";
 
-                        var Temp = obj["feeds"][1]["field3"];
-                        Temp = Math.round(Temp*1000)/1000;
-                        Temp = Math.round(Temp*1000)/1000;
+                        var Temp1 = obj["feeds"][1]["field3"];
+                        Temp1 = Math.round(Temp1*1000)/1000;
 
-                        document.getElementById("tempStatus").innerHTML = Temp;
-                        document.getElementById("rhStatus").innerHTML = obj["feeds"][1]["field4"];
+                        var Temp2 = obj["feeds"][1]["field4"];
+                        Temp2 = Math.round(Temp2*1000)/1000;
+
+
+                        document.getElementById("tempStatus").innerHTML = Temp1;
+                        document.getElementById("rhStatus").innerHTML = Temp2;
 
                         ButtonEnableDisable();
                     }
