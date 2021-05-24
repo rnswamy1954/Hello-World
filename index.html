@@ -58,9 +58,9 @@
                         var Temp1 = Temp1 + " " + Temp3;
 
                         var Temp2 = obj["feeds"][1]["field4"];
-                        Temp2 = Math.round((Temp2*100000)/100000);
-                      //  var Temp3 = " %";
-                      //  var Temp2 = Temp2 + " " + Temp3;
+                        Temp2 = ((Temp2*100000)/100000);
+                        var Temp3 = " %";
+                        var Temp2 = Temp2 + " " + Temp3;
 
 
                         document.getElementById("tempStatus").innerHTML = Temp1;
