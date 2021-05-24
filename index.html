@@ -52,7 +52,10 @@
                         if (Channel_1_ContactorStatus == 1) document.getElementById("txPowerStatus").innerHTML = "Transmitter is OFF";
                         else if (Channel_1_ContactorStatus == 0) document.getElementById("txPowerStatus").innerHTML = "Transmitter is ON";
 
-                        document.getElementById("tempStatus").innerHTML = obj["feeds"][1]["field3"];
+                        var Temp = obj["feeds"][1]["field3"];
+                        Temp = (Temp*1000)/1000;
+
+                        document.getElementById("tempStatus").innerHTML = Temp;
                         document.getElementById("rhStatus").innerHTML = obj["feeds"][1]["field4"];
 
                         ButtonEnableDisable();
