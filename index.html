@@ -54,9 +54,9 @@
 
                         var Temp1 = obj["feeds"][1]["field3"];
                         var Temp11 = Math.round((Temp1*100000)/100000);
-                        if(Temp11 == 0)Temp11 = "";
                         var Temp3 = " C";
                         var Temp1 = Temp11 + " " + Temp3;
+                        if(Temp11 == 0)Temp1 = "";
 
                         var Temp2 = obj["feeds"][1]["field4"];
                         Temp2 = Math.round((Temp2*100000)/100000);
