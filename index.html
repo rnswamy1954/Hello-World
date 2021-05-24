@@ -53,14 +53,14 @@
                         else if (Channel_1_ContactorStatus == 0) document.getElementById("txPowerStatus").innerHTML = "Transmitter is ON";
 
                         var Temp1 = obj["feeds"][1]["field3"];
-                        Temp1 = Math.round(Temp1*1000)/1000;
+                        Temp1 = Math.round((Temp1*100000)/100000);
 
                         var Temp2 = obj["feeds"][1]["field4"];
-                        Temp2 = Math.round(Temp2*1000)/1000;
+                        Temp2 = Math.round((Temp2*100000)/100000);
 
 
-                        document.getElementById("tempStatus").innerHTML = Math.round((Temp1*100)/100);
-                        document.getElementById("rhStatus").innerHTML = Math.round((Temp2*100)/100);
+                        document.getElementById("tempStatus").innerHTML = Temp1;
+                        document.getElementById("rhStatus").innerHTML = Temp2;
 
                         ButtonEnableDisable();
                     }
