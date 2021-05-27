@@ -96,7 +96,7 @@
                         // document.getElementById("txPowerStatus").innerHTML = data;
                       //   console.log(data);
                         if (data == 0) alert("Command failed.  Retry once again after 20 seconds");
-                          else if(data !=0) alert("Command Success!! Wait for 20 seconds for the switching to take place")
+                          else alert("Command Success!! Wait for 20 seconds for the switching to take place")
                     }
                 )
                 .catch((error) => {
@@ -111,7 +111,7 @@
 
 
 
-<body class="d-flex flex-column min-vh-300">
+<body class="d-flex flex-column min-vh-100">
 
 
 <div class="container">
@@ -123,7 +123,7 @@
     </div>
     <div class="row top-buffer">
         <div class="col">
-            <div class="d-grid gap-4 col-2 mx-auto">
+            <div class="d-grid gap-4 col-4 mx-auto">
                 <button id="onbtn" type="button" class="btn btn-primary" disabled onclick={TxSwitchON(this)}>TURN
                     Transmitter ON
                 </button>
