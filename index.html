@@ -69,13 +69,8 @@
                         var Temp2 = Temp22 + " " + Temp3;
                         if(Temp22 == 0)Temp2 = "";
 
-                        var Temp4 = obj["feeds"][1]["field5"];
-
-
-
                         document.getElementById("tempStatus").innerHTML = Temp1;
                         document.getElementById("rhStatus").innerHTML = Temp2;
-                        document.getElementById("TxPower").innerHTML = Temp4;
 
                         ButtonEnableDisable();
                     }
@@ -157,10 +152,7 @@
                     <th scope="row">Relative Humidity:</th>
                     <td id="rhStatus"></td>
                 </tr>
-                <tr class="table-info">
-                    <th scope="row">Output RF Power:</th>
-                    <td id="TxPower"></td>
-                </tr>
+
                 </tbody>
             </table>
         </div>
