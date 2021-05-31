@@ -88,6 +88,10 @@
             API_TX_Switch(1);
         }
 
+        function Graphics() {
+            API_Graphics(1);
+        }
+
         function API_TX_Switch(onOrOff) {
             fetch(`https://api.thingspeak.com/update?api_key=FYHD918T4ZH50R1A&field1=${onOrOff}`)
                 .then(response => response.text())
@@ -102,7 +106,18 @@
                         console.error('Error:', error);
                     }
                 );
+        }
 
+        function API_Graphics(ON) {
+            fetch(`https://thingspeak.com/apps/matlab_visualizations/412315?width=1000&height=1200=${onOrOff}`)
+                .then(response => response.text())
+                .then(data => {
+                    }
+                )
+                .catch((error) => {
+                        console.error('Error:', error);
+                    }
+                );
         }
 
 
@@ -171,7 +186,7 @@
     <div class="col">
         <div class="d-grid gap-4 col-4 mx-auto">
 
-          <button class="btn btn-primary" onclick="window.location.href='https://thingspeak.com/apps/matlab_visualizations/412315';">
+          <button class="btn btn-primary" onclick={Graphics(1)};">
             Graphics on Temperature/RH vs Time.
           </button>
 
