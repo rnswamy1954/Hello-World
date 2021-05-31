@@ -89,7 +89,7 @@
         }
 
         function Graphics() {
-            API_Graphics(1);
+            API_Graphics();
         }
 
         function API_TX_Switch(onOrOff) {
@@ -108,8 +108,8 @@
                 );
         }
 
-        function API_Graphics(ON) {
-            fetch(`https://thingspeak.com/apps/matlab_visualizations/412315?width=1000&height=1200=${onOrOff}`)
+        function API_Graphics() {
+            fetch(`https://thingspeak.com/apps/matlab_visualizations/412315?width=1000&height=1200`)
                 .then(response => response.text())
                 .then(data => {
                     }
@@ -186,7 +186,7 @@
     <div class="col">
         <div class="d-grid gap-4 col-4 mx-auto">
 
-          <button class="btn btn-primary" onclick={Graphics(1)};">
+          <button class="btn btn-primary" onclick={Graphics()};">
             Graphics on Temperature/RH vs Time.
           </button>
 
