@@ -118,6 +118,23 @@
 <body class="d-flex flex-column min-vh-100">  <! Creates heading for the page>
 
 <div class="container">
+
+  // Source mixin
+  @mixin make-container($padding-x: $container-padding-x) {
+    width: 100%;
+    padding-right: $padding-50;
+    padding-left: $padding-50;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  // Usage
+  .custom-container {
+    @include make-container();
+  }
+
+
+
     <div class="row top-buffer">
         <div class="col">
             <h1 class="display-4 text-center">Transmitter Automation</h1>
