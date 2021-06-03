@@ -120,9 +120,6 @@
 <div class="container">
 
 
-
-
-
     <div class="row top-buffer">
         <div class="col">
             <h1 class="display-4 text-center">Transmitter Automation</h1>
@@ -157,20 +154,33 @@
                     <th scope="row">Transmitter Status:</th>
                     <td id="txPowerStatus"></td>
                 </tr>
-                <tr class="table-info">
-                    <th scope="row">Ambient Temperature:</th>
-                    <td id="tempStatus"></td>
-                </tr>
-                <tr class="table-info">
-                    <th scope="row">Relative Humidity:</th>
-                    <td id="rhStatus"></td>
-                </tr>
-
                 </tbody>
             </table>
         </div>
         <div class="col"></div>
     </div>
+</div>
+
+
+<div class="row top-buffer">  <!Creates table for the the text display>
+    <div class="col"></div>
+    <div class="col">
+        <table class="table">
+            <tbody>
+            <tr class="table-info">
+                <th scope="row">Ambient Temperature:</th>
+                <td id="tempStatus"></td>
+            </tr>
+            <tr class="table-info">
+                <th scope="row">Relative Humidity:</th>
+                <td id="rhStatus"></td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+    <div class="col"></div>
+</div>
 </div>
 
 
