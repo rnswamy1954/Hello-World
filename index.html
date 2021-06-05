@@ -23,6 +23,12 @@
 
     <script>
 
+
+    $('#myModal').on('shown.bs.modal', function () {
+      $('#myInput').trigger('focus')
+    })
+
+
         let Channel_1_ContactorStatus = 0;
 
         setTimeout(Init, 2);// Required to intialize the button depending on the switch status, only ONCE
@@ -110,9 +116,7 @@
     window.location.href='https://thingspeak.com/apps/matlab_visualizations/412315?width=1000&height=600'
   }
 
-  $('#myModal').on('shown.bs.modal', function () {
-    $('#myInput').trigger('focus')
-  })
+
 
 </script>
 
