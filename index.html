@@ -92,8 +92,8 @@
                         Channel_1_ContactorStatus = obj["feeds"][1]["field2"];// status of the power contactor
                     //    console.log(Channel_1_ContactorStatus);
 
-                        if (Channel_1_ContactorStatus == 0) document.getElementById("txPowerStatus").innerHTML = "Transmitter is OFF";
-                        else if (Channel_1_ContactorStatus == 1) document.getElementById("txPowerStatus").innerHTML = "Transmitter is ON";
+                        if (Channel_1_ContactorStatus == 1) document.getElementById("txPowerStatus").innerHTML = "Transmitter is OFF";
+                        else if (Channel_1_ContactorStatus == 0) document.getElementById("txPowerStatus").innerHTML = "Transmitter is ON";
 
                         var Temp1 = obj["feeds"][1]["field3"];
                         var Temp11 = Math.round((Temp1*100000)/100000);
@@ -119,11 +119,11 @@
         ///////////////////////Writing to ThingSpeak////////////////////////////
 
         function TxSwitchON() {
-            API_TX_Switch(1);
+            API_TX_Switch(0);
         }
 
         function TxSwitchOFF() {
-            API_TX_Switch(0);
+            API_TX_Switch(1);
         }
 
         function API_TX_Switch(onOrOff) {
