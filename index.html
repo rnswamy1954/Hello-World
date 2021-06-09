@@ -32,29 +32,44 @@
             margin: 0 auto;
             display: block;
         }
-
     </style>
 
 
-    <script>
+    <script>  /* Get iframe src attribute value i.e. Matlab graphics URLand store it in a variable */
     $(document).ready(function(){
-        /* Get iframe src attribute value i.e. YouTube video url
-        and store it in a variable */
+
         var url = $("#TempRHGraphics").attr('src');
 
-        /* Assign empty url value to the iframe src attribute when
-        modal hide, which stop the video playing */
-        $("#myModal").on('hide.bs.modal', function(){
+        /* Assign empty url value to the iframe src attribute when modal hide, which stop the video playing */
+        $("#TempRHModal").on('hide.bs.modal', function(){
             $("#TempRHGraphics").attr('src', '');
         });
 
-        /* Assign the initially stored url back to the iframe src
-        attribute when modal is displayed again */
-        $("#myModal").on('show.bs.modal', function(){
+        /* Assign the initially stored url back to the iframe src attribute when modal is displayed again */
+        $("#TempRHModal").on('show.bs.modal', function(){
             $("#TempRHGraphics").attr('src', url);
         });
     });
     </script>
+
+
+    <script>  /* Get iframe src attribute value i.e. Matlab graphics URLand store it in a variable */
+    $(document).ready(function(){
+
+        var url = $("#TxSwitchingGraphics").attr('src');
+
+        /* Assign empty url value to the iframe src attribute when modal hide, which stop the video playing */
+        $("#TxSwitchingModal").on('hide.bs.modal', function(){
+            $("#TxSwitchingGraphics").attr('src', '');
+        });
+
+        /* Assign the initially stored url back to the iframe srcatribute when modal is displayed again */
+        $("#TxSwitchingModal").on('show.bs.modal', function(){
+            $("#TxSwitchingGraphics").attr('src', url);
+        });
+    });
+    </script>
+
 
 
     <script>
@@ -229,8 +244,8 @@
     <div class="col">
           <div class="col-md-12 text-center">
 
-          <a href="#myModal" role="button" class="btn btn-success" data-toggle="modal"><small>Graph: Temp/RH vs Time</small></a>
-          <a href="#myModal2" role="button" class="btn btn-success" data-toggle="modal"><small>Graph: Tx Status vs Time</small></a>
+          <a href="#TempRHModal" role="button" class="btn btn-success" data-toggle="modal"><small>Graph: Temp/RH vs Time</small></a>
+          <a href="#TxSwitchingModal" role="button" class="btn btn-success" data-toggle="modal"><small>Graph: Tx Status vs Time</small></a>
 
           </button>
         </div>
@@ -239,20 +254,37 @@
 
 
 
-<div class="bs-example">  <!-- Modal and iframe -->
+<div class="bs-example">  <!-- Modal and iframe for Temp and RH Graphics -->
 
-    <div id="myModal" class="modal fade">
+    <div id="TempRHModal" class="modal fade">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-body mb-0 p-0>
                   <div class="embed-responsive embed-responsive-16by9">
-                    <iframe id="TempRHGraphics" class="embed-responsive-item" width="360" height="300" src="https://thingspeak.com/apps/matlab_visualizations/412315?width=360&height=300" allowfullscreen></iframe>
+                    <iframe id="TxSwitchingGraphics" class="embed-responsive-item" width="360" height="300" src="https://thingspeak.com/apps/matlab_visualizations/412315?width=360&height=300" allowfullscreen></iframe>
                   </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
+<div class="bs-example">  <!-- Modal and iframe for Transmitter switching graphics -->
+
+    <div id="TxSwitchingModal" class="modal fade">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body mb-0 p-0>
+                  <div class="embed-responsive embed-responsive-16by9">
+                    <iframe id="TempRHGraphics" class="embed-responsive-item" width="360" height="300" src="https://thingspeak.com/apps/matlab_visualizations/413731?width=360&height=300" allowfullscreen></iframe>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 
 
