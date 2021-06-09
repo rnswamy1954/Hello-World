@@ -90,8 +90,8 @@
                         Channel_1_ContactorStatus = obj["feeds"][1]["field2"];// status of the power contactor
                     //    console.log(Channel_1_ContactorStatus);
 
-                        if (Channel_1_ContactorStatus == 1) document.getElementById("txPowerStatus").innerHTML = "Transmitter is OFF";
-                        else if (Channel_1_ContactorStatus == 0) document.getElementById("txPowerStatus").innerHTML = "Transmitter is ON";
+                        if (Channel_1_ContactorStatus == 0) document.getElementById("txPowerStatus").innerHTML = "Transmitter is OFF";
+                        else if (Channel_1_ContactorStatus == 1) document.getElementById("txPowerStatus").innerHTML = "Transmitter is ON";
 
                         var Temp1 = obj["feeds"][1]["field3"];
                         var Temp11 = Math.round((Temp1*100000)/100000);
@@ -163,11 +163,11 @@
 
     <div class="row top-buffer"> <! Creates buttons for the switching>
             <div class="col-md-12 text-center">
-                <button id="onbtn" type="button" class="btn btn-primary" disabled onclick={TxSwitchON(this)}>TURN
-                    Transmitter ON
-                </button>
-                <button id="offbtn" type="button" class="btn btn-primary" disabled onclick={TxSwitchOFF(this)}>TURN
+                <button id="onbtn" type="button" class="btn btn-primary" disabled onclick={TxSwitchOFF(this)}>TURN
                     Transmitter OFF
+                </button>
+                <button id="offbtn" type="button" class="btn btn-primary" disabled onclick={TxSwitchON(this)}>TURN
+                    Transmitter ON
                 </button>
             </div>
       </div>
