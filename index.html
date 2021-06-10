@@ -100,8 +100,8 @@
                         Channel_1_ContactorStatus = obj["feeds"][1]["field2"];// status of the power contactor
                     //    console.log(Channel_1_ContactorStatus);
 
-                        if (Channel_1_ContactorStatus == 0) document.getElementById("txPowerStatus").innerHTML = "OFF";
-                        else if (Channel_1_ContactorStatus == 1) document.getElementById("txPowerStatus").innerHTML = "ON";
+                        if (Channel_1_ContactorStatus == 0) document.getElementById("txPowerStatus").innerHTML = "O F F";
+                        else if (Channel_1_ContactorStatus == 1) document.getElementById("txPowerStatus").innerHTML = "O N";
 
                         var Temp1 = obj["feeds"][1]["field3"];
                         var Temp11 = Math.round((Temp1*100000)/100000);
@@ -190,7 +190,7 @@
             <table class="table text-center">
                 <tbody>
                 <tr class="table-danger">
-                    <th scope="row">Transmitter:</th>
+                    <th scope="row">Transmitter status:</th>
                     <td id="txPowerStatus"></td>
                 </tr>
                 </tbody>
