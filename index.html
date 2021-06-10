@@ -35,7 +35,7 @@
     </style>
 
 
-    <script>  /* Get iframe src attribute value i.e. Matlab graphics URLand store it in a variable */
+    <script>  /* Graphics on Temp and RH: Get iframe src attribute value i.e. Matlab graphics URL and store it in a variable */
     $(document).ready(function(){
 
         var url = $("#TempRHGraphics").attr('src');
@@ -50,10 +50,9 @@
             $("#TempRHGraphics").attr('src', url);
         });
     });
-    </script>
 
 
-    <script>  /* Get iframe src attribute value i.e. Matlab graphics URLand store it in a variable */
+    /*Graphics on Transmitter switching: Get iframe src attribute value i.e. Matlab graphics URLand store it in a variable */
     $(document).ready(function(){
 
         var url = $("#TxSwitchingGraphics").attr('src');
@@ -68,22 +67,18 @@
             $("#TxSwitchingGraphics").attr('src', url);
         });
     });
-    </script>
-
-
-
-    <script>
 
         let Channel_1_ContactorStatus = 0;
 
-        setTimeout(Init, 2);// Required to intialize the button depending on the switch status, only ONCE
+        setTimeout(Init, 2);// Required to intialize the Tx Button depending on the switch status, only ONCE when the app is opened
+        function Init()
+        {
+            ReadThingSpeakAPI();
+            ButtonEnableDisable();
+           }
 
         setInterval(ReadThingSpeakAPI, 1000);// Event driven REPEAT timer for fetching the data from the ThingSpeak
 
-        function Init() {
-            ReadThingSpeakAPI();
-            ButtonEnableDisable();
-        }
 
         function ButtonEnableDisable() {
             if (Channel_1_ContactorStatus == 0) {
@@ -155,8 +150,6 @@
                 );
 
         }
-
-
 </script>
 
 </head>
@@ -197,7 +190,7 @@
             <table class="table text-center">
                 <tbody>
                 <tr class="table-danger">
-                    <th scope="row">Transmitter Status:</th>
+                    <th scope="row">Transmitter:</th>
                     <td id="txPowerStatus"></td>
                 </tr>
                 </tbody>
