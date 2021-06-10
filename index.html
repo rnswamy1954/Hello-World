@@ -32,6 +32,20 @@
             margin: 0 auto;
             display: block;
         }
+
+        .color-red
+        {
+          color: #FF0000;
+          font-weight: bold;
+         }
+
+         .color-green
+         {
+           color: #9ACD32;
+           font-weight: bold;
+          }
+
+
     </style>
 
 
@@ -100,8 +114,8 @@
                         Channel_1_ContactorStatus = obj["feeds"][1]["field2"];// status of the power contactor
                     //    console.log(Channel_1_ContactorStatus);
 
-                        if (Channel_1_ContactorStatus == 0) document.getElementById("txPowerStatus").innerHTML = "O F F";
-                        else if (Channel_1_ContactorStatus == 1) document.getElementById("txPowerStatus").innerHTML = "O N";
+                        if (Channel_1_ContactorStatus == 0) document.getElementById("txPowerStatus").innerHTML =  "<span class='color-green'>O F F</span>";
+                        else if (Channel_1_ContactorStatus == 1) document.getElementById("txPowerStatus").innerHTML = "<span class='color-red'>O N</span>";
 
                         var Temp1 = obj["feeds"][1]["field3"];
                         var Temp11 = Math.round((Temp1*100000)/100000);
