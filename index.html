@@ -39,6 +39,7 @@
           color: #FF0000;
           font-weight: bold;
            font-size: 18px;
+           font-family: sans-serif;
          }
 
          .color-green
@@ -47,15 +48,16 @@
            font-weight: bold;
             font-size: 18px;
             font-family: sans-serif;
-            transition: 0.5s;
-          }
+            }
 
-          #blink {
-              font-size: 14px;
-              font-weight: bold;
-              color: #2d38be;
-              transition: 0.5s;
-          }
+          .color-cyan
+          {
+            color: #FFCCE6;
+            font-weight: bold;
+             font-size: 18px;
+             font-family: sans-serif;
+              }
+
 
     </style>
 
@@ -98,6 +100,7 @@
     });
 
         let Channel_1_ContactorStatus = 0;
+        let iCycle = 0;
 
         setTimeout(Init, 2);// Required to intialize the Tx Button depending on the switch status, only ONCE when the app is opened
         function Init()
@@ -107,7 +110,6 @@
            }
 
         setInterval(ReadThingSpeakAPI, 1000);// Event driven REPEAT timer for fetching the data from the ThingSpeak
-
 
         function ButtonEnableDisable() {
             if (Channel_1_ContactorStatus == 0) {
@@ -128,9 +130,16 @@
                     //    console.log(data);
                         Channel_1_ContactorStatus = obj["feeds"][1]["field2"];// status of the power contactor
                     //    console.log(Channel_1_ContactorStatus);
-
+                    if(iCycle == 0)
+                    {
                         if (Channel_1_ContactorStatus == 0) document.getElementById("txPowerStatus").innerHTML =  "<span class='color-green'>O F F</span>";
-                        else if (Channel_1_ContactorStatus == 1) document.getElementById("txPowerStatus").innerHTML = "<span class='color-red'>O N</span>";
+                          else if (Channel_1_ContactorStatus == 1) document.getElementById("txPowerStatus").innerHTML = "<span class='color-red'>O N</span>";
+                        }
+                        else if(iCycle == 1)
+                        {
+                          if (Channel_1_ContactorStatus == 0) document.getElementById("txPowerStatus").innerHTML =  "<span class='color-cyan'>O F F</span>";
+                            else if (Channel_1_ContactorStatus == 1) document.getElementById("txPowerStatus").innerHTML = "<span class='color-cyan'>O N</span>";
+                          }
 
                         var Temp1 = obj["feeds"][1]["field3"];
                         var Temp11 = Math.round((Temp1*100000)/100000);
@@ -150,6 +159,9 @@
                         ButtonEnableDisable();
                     }
                 )
+
+                iCycle++;
+                if(iCycle == 2) iCycle = 0;
         }
 
 
