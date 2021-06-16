@@ -142,12 +142,14 @@
                           }
 
                         var Temp1 = obj["feeds"][1]["field3"];
+                        if(Temp1 == NaN)Temp1 = 0;
                         var Temp11 = Math.round((Temp1*100000)/100000);
                         var Temp3 = " C";
                         var Temp1 = Temp11 + " " + Temp3;
                         if(Temp11 == 0)Temp1 = "";
 
                         var Temp2 = obj["feeds"][1]["field4"];
+                        if(Temp2 == NaN)Temp2 = 0;
                         var Temp22 = Math.round((Temp2*100000)/100000);
                         var Temp3 = " %";
                         var Temp2 = Temp22 + " " + Temp3;
@@ -158,12 +160,14 @@
 
 
                         var Temp1 = obj["feeds"][1]["field5"];
+                        if(Temp1 == NaN)Temp1 = 0;
                         var Temp11 = Math.round((Temp1*100000)/100000);
                         var Temp3 = " C";
                         var Temp1 = Temp11 + " " + Temp3;
                         if(Temp11 == 0)Temp1 = "";
 
                         var Temp2 = obj["feeds"][1]["field6"];
+                        if(Temp2 == NaN)Temp2 = 0;
                         var Temp22 = Math.round((Temp2*100000)/100000);
                         var Temp3 = " %";
                         var Temp2 = Temp22 + " " + Temp3;
@@ -285,13 +289,13 @@
       <tbody>
         <tr>
           <td>Temperature</td>
-          <td id="temp1Status"></td>
           <td id="temp2Status"></td>
+          <td id="temp1Status"></td>
         </tr>
         <tr>
           <td>Relative Humidity</td>
-          <td id="rh1Status"></td>
           <td id="rh2Status"></td>
+          <td id="rh1Status"></td>
 
 
         </tr>
