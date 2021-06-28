@@ -160,8 +160,17 @@
                         var Temp2 = Temp22 + " " + Temp3;
                         if(Temp22 == 0)Temp2 = "";
 
-                        document.getElementById("temp1Status").innerHTML = Temp1;
-                        document.getElementById("rh1Status").innerHTML = Temp2;
+                        if(bInternetStatus == 1)
+                        {
+                          document.getElementById("temp1Status").innerHTML = Temp1;
+                          document.getElementById("rh1Status").innerHTML = Temp2;
+                          }
+                          else
+                          {
+                            Temp1 = "";
+                            document.getElementById("temp1Status").innerHTML = Temp1;
+                            document.getElementById("rh1Status").innerHTML = Temp1;
+                            }
 
 
                         var Temp1 = obj["feeds"][1]["field5"];
@@ -177,9 +186,17 @@
                         var Temp3 = " %";
                         var Temp2 = Temp22 + " " + Temp3;
                         if(Temp22 == 0)Temp2 = "";
-
-                        document.getElementById("temp2Status").innerHTML = Temp1;
-                        document.getElementById("rh2Status").innerHTML = Temp2;
+                        if(bInternetStatus == 1)
+                        {
+                          document.getElementById("temp2Status").innerHTML = Temp1;
+                          document.getElementById("rh2Status").innerHTML = Temp2;
+                         }
+                         else
+                         {
+                           Temp1 = "";
+                           document.getElementById("temp2Status").innerHTML = Temp1;
+                           document.getElementById("rh2Status").innerHTML = Temp1;
+                           }
 
                         ButtonEnableDisable();
 
@@ -200,8 +217,6 @@
 
                            Prev_Entry_ID = Entry_ID;
                         }
-
-
                     }
                 )
 
