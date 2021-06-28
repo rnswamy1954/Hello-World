@@ -134,7 +134,9 @@
                         //  document.getElementById("txPowerStatus").innerHTML = obj["feeds"][1]["field2"];
                     //    console.log(data);
                         Channel_1_ContactorStatus = obj["feeds"][1]["field2"];// status of the power contactor
-                    //    console.log(Channel_1_ContactorStatus);
+
+                  if(bInternetStatus == 1)
+                   {
                     if(iCycle == 0)// for flickering effect of the status
                     {
                         if (Channel_1_ContactorStatus == 0) document.getElementById("txPowerStatus").innerHTML =  "<span class='color-green'>O F F</span>";
@@ -144,7 +146,9 @@
                         {
                           if (Channel_1_ContactorStatus == 0) document.getElementById("txPowerStatus").innerHTML =  "<span class='color-cyan'>O F F</span>";
                             else if (Channel_1_ContactorStatus == 1) document.getElementById("txPowerStatus").innerHTML = "<span class='color-cyan'>O N</span>";
-                          }
+                         }
+                      }
+                      else if(bInternetStatus == 0)   document.getElementById("txPowerStatus").innerHTML =  "<span class='color-cyan'>     </span>";
 
                         var Temp1 = obj["feeds"][1]["field3"];
                         if(Temp1 == NaN)Temp1 = 0;
