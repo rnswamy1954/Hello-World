@@ -101,8 +101,12 @@
 
         let Channel_1_ContactorStatus = 0;
         let iCycle = 0;
+        let iInternet_Check_Cycle = 0;
+        let Prev_Entry_ID = 0;
+        let Entry_ID = 0;
+        let bInternetStatus = 0;
 
-        setTimeout(Init, 2);// Required to intialize the Tx Button depending on the switch status, only ONCE when the app is opened
+        setTimeout(Init, 2);// Required during the startup to intialize the Tx Button depending on the switch status, only ONCE when the app is opened
         function Init()
         {
             ReadThingSpeakAPI();
@@ -130,7 +134,7 @@
                     //    console.log(data);
                         Channel_1_ContactorStatus = obj["feeds"][1]["field2"];// status of the power contactor
                     //    console.log(Channel_1_ContactorStatus);
-                    if(iCycle == 0)
+                    if(iCycle == 0)// for flickering effect of the status
                     {
                         if (Channel_1_ContactorStatus == 0) document.getElementById("txPowerStatus").innerHTML =  "<span class='color-green'>O F F</span>";
                           else if (Channel_1_ContactorStatus == 1) document.getElementById("txPowerStatus").innerHTML = "<span class='color-red'>O N</span>";
@@ -177,10 +181,32 @@
                         document.getElementById("rh2Status").innerHTML = Temp2;
 
                         ButtonEnableDisable();
+
+                       if(iInternet_Check_Cycle == 0)
+                       {
+                         Entry_ID = obj["feeds"][0]["entry_id"];
+
+                         if (Entry_ID != Prev_Entry_ID)
+                         {
+                           document.getElementById("Internet_Status").innerHTML = "Working";
+                           bInternetStatus = 1;
+                           }
+                           else
+                           {
+                           document.getElementById("Internet_Status").innerHTML = "NOT working";
+                           bInternetStatus = 0;
+                            }
+
+                           Prev_Entry_ID = Entry_ID;
+                        }
+
+
                     }
                 )
 
                 iCycle++;
+                iInternet_Check_Cycle++;
+                if(iInternet_Check_Cycle == 20) iInternet_Check_Cycle = 0;
                 if(iCycle == 2) iCycle = 0;
         }
 
@@ -213,6 +239,11 @@
         }
 
 
+
+
+
+
+
 </script>
 
 <script type="text/javascript">
@@ -240,7 +271,6 @@
 
 
 
-
     <div class="row top-buffer"> <! Creates buttons for the switching>
             <div class="col-md-12 text-center">
                 <button id="onbtn" type="button" class="btn btn-primary" disabled onclick={TxSwitchOFF(this)}>TURN
@@ -251,7 +281,6 @@
                 </button>
             </div>
       </div>
-
 
 
 
@@ -270,6 +299,23 @@
         </div>
         <div class="col"></div>
   </div>
+
+
+  <div class="row top-buffer ">  <!Creates table for indicating the Internet status>
+      <div class="col"></div>
+      <div class="col-lg-3 col-md-6 text-center">
+
+          <table class="table text-center table-bordered table-hover">
+              <tbody>
+              <tr class="table-danger">
+                  <th scope="row" "text-danger">Internet @ Transmitter</th>
+                  <td id="Internet_Status"></td>
+              </tr>
+              </tbody>
+          </table>
+      </div>
+      <div class="col"></div>
+</div>
 
 
 
@@ -352,6 +398,8 @@
         </div>
     </div>
 </div>
+
+
 
 
 
