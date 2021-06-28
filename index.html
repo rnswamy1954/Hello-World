@@ -145,11 +145,16 @@
                     {
                         if (Channel_1_ContactorStatus == 0) document.getElementById("txPowerStatus").innerHTML =  "<span class='color-green'>O F F</span>";
                           else if (Channel_1_ContactorStatus == 1) document.getElementById("txPowerStatus").innerHTML = "<span class='color-red'>O N</span>";
+
+                        if(bInternetStatus == 1) document.getElementById("Internet_Status").innerHTML = "OK";
+                          else if (bInternetStatus == 0) document.getElementById("Internet_Status").innerHTML = "Checking";
                         }
                         else if(iCycle == 1)
                         {
                           if (Channel_1_ContactorStatus == 0) document.getElementById("txPowerStatus").innerHTML =  "<span class='color-cyan'>O F F</span>";
                             else if (Channel_1_ContactorStatus == 1) document.getElementById("txPowerStatus").innerHTML = "<span class='color-cyan'>O N</span>";
+                            if(bInternetStatus == 1) document.getElementById("Internet_Status").innerHTML = "  ";
+                              else if (bInternetStatus == 0) document.getElementById("Internet_Status").innerHTML = "        ";   
                          }
                       }
                       else if(bInternetStatus == 0)   document.getElementById("txPowerStatus").innerHTML =  "<span class='color-cyan'>     </span>";
@@ -212,25 +217,18 @@
                        {
                          Entry_ID = obj["feeds"][0]["entry_id"];
 
-                         if (Entry_ID != Prev_Entry_ID)
-                         {
-                           document.getElementById("Internet_Status").innerHTML = "OK";
-                           bInternetStatus = 1;
-                           }
-                           else
-                           {
-                            document.getElementById("Internet_Status").innerHTML = "NOT OK";
-                            bInternetStatus = 0;
-                            }
-
-                           Prev_Entry_ID = Entry_ID;
+                         if (Entry_ID != Prev_Entry_ID) bInternetStatus = 1;
+                           else bInternetStatus = 0;
+                         Prev_Entry_ID = Entry_ID;
                         }
                     }
                 )
 
+
+
                 iCycle++;
                 iInternet_Check_Cycle++;
-                if(iInternet_Check_Cycle == 30) iInternet_Check_Cycle = 0;
+                if(iInternet_Check_Cycle == 30) iInternet_Check_Cycle = 0;// 30 works well
                 if(iCycle == 2) iCycle = 0;
         }
 
