@@ -110,21 +110,25 @@
         function Init()
         {
             ReadThingSpeakAPI();
-            ButtonEnableDisable();
+            if(bInternetStatus ==1) ButtonEnableDisable();
             document.getElementById("Internet_Status").innerHTML = "Checking";
            }
 
         setInterval(ReadThingSpeakAPI, 1000);// Event driven REPEAT timer for fetching the data from the ThingSpeak
 
-        function ButtonEnableDisable() {
-            if (Channel_1_ContactorStatus == 0) {
+        function ButtonEnableDisable()
+        {
+            if (Channel_1_ContactorStatus == 0)
+            {
                 document.getElementById("offbtn").disabled = false;// enables the OFF button
                 document.getElementById("onbtn").disabled = true;// disables the ON button
-            } else if (Channel_1_ContactorStatus == 1) {
+            }
+            else if (Channel_1_ContactorStatus == 1)
+            {
                 document.getElementById("onbtn").disabled = false;// enables the ON button
                 document.getElementById("offbtn").disabled = true;// disables the OFF button
             }
-        }
+           }
 
         function ReadThingSpeakAPI() {
             fetch('https://api.thingspeak.com/channels/1371638/feeds.json?api_key=6JM5T4GQ0TCFSGFT&results=2')
@@ -202,7 +206,7 @@
                            document.getElementById("rh2Status").innerHTML = Temp1;
                            }
 
-                        ButtonEnableDisable();
+                      if(bInternetStatus ==1)  ButtonEnableDisable();
 
                        if(iInternet_Check_Cycle == 0)
                        {
