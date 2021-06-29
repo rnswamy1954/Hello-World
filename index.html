@@ -134,13 +134,13 @@
                 {
                     if(iCycle == 0)// for flickering effect of the status
                     {
-                        if (Channel_1_ContactorStatus == 0) document.getElementById("txPowerStatus").innerHTML =  "<span class='color-green'>  O F F</span>";
-                          else if (Channel_1_ContactorStatus == 1) document.getElementById("txPowerStatus").innerHTML = "<span class='color-red'>O N</span>";
+                        if (Channel_1_ContactorStatus == 0) document.getElementById("txPowerStatus").innerHTML =  "<span class='color-green'>&nbsp &nbsp O F F</span>";
+                          else if (Channel_1_ContactorStatus == 1) document.getElementById("txPowerStatus").innerHTML = "<span class='color-red'>&nbsp &nbsp &nbsp O N</span>";
                         }
                         else if(iCycle == 1)
                         {
-                          if (Channel_1_ContactorStatus == 0) document.getElementById("txPowerStatus").innerHTML =  "<span class='color-cyan'>O F F</span>";
-                            else if (Channel_1_ContactorStatus == 1) document.getElementById("txPowerStatus").innerHTML = "<span class='color-cyan'>O N</span>";
+                          if (Channel_1_ContactorStatus == 0) document.getElementById("txPowerStatus").innerHTML =  "<span class='color-cyan'>&nbsp &nbsp O F F</span>";
+                            else if (Channel_1_ContactorStatus == 1) document.getElementById("txPowerStatus").innerHTML = "<span class='color-cyan'>&nbsp &nbsp &nbsp O N</span>";
                          }
 
                       switch(iInternet_Check_Cycle%5)
@@ -165,14 +165,9 @@
                        document.getElementById("Internet_Status").innerHTML = "Connected....";
                        break;
                      }
-
-
                     }
                     else if(bInternetStatus == 0)
                     {
-  //                    if(iCycle == 0)document.getElementById("Internet_Status").innerHTML = "Connecting";
-  //                     else if(iCycle == 1) document.getElementById("Internet_Status").innerHTML = "Connecting...";
-
                           switch(iInternet_Check_Cycle%5)
                           {
                            case 0:
@@ -195,7 +190,6 @@
                            document.getElementById("Internet_Status").innerHTML = "Connecting....";
                            break;
                          }
-
                       document.getElementById("txPowerStatus").innerHTML =  "<span class='color-green'></span>";
                      }
 
@@ -352,7 +346,7 @@
             <table class="table text-left table-bordered table-hover table-layout: fixed">
                 <tbody>
                 <tr class="table-danger">
-                    <th scope="row" "text-danger, style="width: 50%">Transmitter status</th>
+                    <th scope="row" "text-danger, style="width: 50%">&nbsp &nbsp Transmitter status</th>
                     <td id="txPowerStatus"></td>
                 </tr>
                 <tr class="table-warning">
