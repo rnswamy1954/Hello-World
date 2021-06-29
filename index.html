@@ -144,17 +144,20 @@
                     {
                         if (Channel_1_ContactorStatus == 0) document.getElementById("txPowerStatus").innerHTML =  "<span class='color-green'>  O F F</span>";
                           else if (Channel_1_ContactorStatus == 1) document.getElementById("txPowerStatus").innerHTML = "<span class='color-red'>O N</span>";
+                         document.getElementById("Internet_Status").innerHTML = "Connected..";
                         }
                         else if(iCycle == 1)
                         {
                           if (Channel_1_ContactorStatus == 0) document.getElementById("txPowerStatus").innerHTML =  "<span class='color-cyan'>O F F</span>";
                             else if (Channel_1_ContactorStatus == 1) document.getElementById("txPowerStatus").innerHTML = "<span class='color-cyan'>O N</span>";
+                           document.getElementById("Internet_Status").innerHTML = "Connected.....";
                           }
+
                     }
                     else if(bInternetStatus == 0)
                     {
-                      if(iCycle == 0)document.getElementById("Internet_Status").innerHTML = "Connecting.";
-                       else if(iCycle == 1) document.getElementById("Internet_Status").innerHTML = "Connecting....";
+                      if(iCycle == 0)document.getElementById("Internet_Status").innerHTML = "Connecting";
+                       else if(iCycle == 1) document.getElementById("Internet_Status").innerHTML = "Connecting...";
 
                       document.getElementById("txPowerStatus").innerHTML =  "<span class='color-green'></span>";
                      }
@@ -215,20 +218,11 @@
 
                        if(iInternet_Check_Cycle == 0)
                        {
-                         Entry_ID = obj["feeds"][0]["entry_id"];
+                         Entry_ID = obj["feeds"][0]["entry_id"];// Gets the entry ID of the packet..
 
-                         if (Entry_ID != Prev_Entry_ID)
-                         {
-                           document.getElementById("Internet_Status").innerHTML = "Connected..";
-                           bInternetStatus = 1;
-                           }
-                           else
-                           {
-                            document.getElementById("Internet_Status").innerHTML = "Connecting...";
-                            bInternetStatus = 0;
-                            }
-
-                           Prev_Entry_ID = Entry_ID;
+                         if (Entry_ID != Prev_Entry_ID)bInternetStatus = 1;
+                           else bInternetStatus = 0;
+                         Prev_Entry_ID = Entry_ID;
                         }
                     }
                 )
