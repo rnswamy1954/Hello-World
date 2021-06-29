@@ -112,12 +112,13 @@
         {
         //    ReadThingSpeakAPI();
           //  ButtonEnableDisable();
-            document.getElementById("Internet_Status").innerHTML = "Checking";
+          //  document.getElementById("Internet_Status").innerHTML = "Checking";
            }
 
         setInterval(ReadThingSpeakAPI, 1000);// Event driven REPEAT timer for fetching the data from the ThingSpeak
 
-        function ButtonEnableDisable() {
+        function ButtonEnableDisable()
+        {
             if (Channel_1_ContactorStatus == 0) {
                 document.getElementById("offbtn").disabled = false;// enables the OFF button
                 document.getElementById("onbtn").disabled = true;// disables the ON button
@@ -125,7 +126,7 @@
                 document.getElementById("onbtn").disabled = false;// enables the ON button
                 document.getElementById("offbtn").disabled = true;// disables the OFF button
             }
-        }
+          }
 
         function ReadThingSpeakAPI() {
             fetch('https://api.thingspeak.com/channels/1371638/feeds.json?api_key=6JM5T4GQ0TCFSGFT&results=2')
@@ -141,7 +142,7 @@
                 {
                     if(iCycle == 0)// for flickering effect of the status
                     {
-                        if (Channel_1_ContactorStatus == 0) document.getElementById("txPowerStatus").innerHTML =  "<span class='color-green'>O F F</span>";
+                        if (Channel_1_ContactorStatus == 0) document.getElementById("txPowerStatus").innerHTML =  "<span class='color-green'>  O F F</span>";
                           else if (Channel_1_ContactorStatus == 1) document.getElementById("txPowerStatus").innerHTML = "<span class='color-red'>O N</span>";
                         }
                         else if(iCycle == 1)
@@ -152,8 +153,10 @@
                     }
                     else if(bInternetStatus == 0)
                     {
-                      if(iCycle == 0)document.getElementById("Internet_Status").innerHTML = "Checking...";
-                       else if(iCycle == 1) document.getElementById("Internet_Status").innerHTML = "Checking......";
+                      if(iCycle == 0)document.getElementById("Internet_Status").innerHTML = "Connecting.";
+                       else if(iCycle == 1) document.getElementById("Internet_Status").innerHTML = "Connecting....";
+
+                      document.getElementById("txPowerStatus").innerHTML =  "<span class='color-green'></span>";
                      }
 
                         var Temp1 = obj["feeds"][1]["field3"];
@@ -216,12 +219,12 @@
 
                          if (Entry_ID != Prev_Entry_ID)
                          {
-                           document.getElementById("Internet_Status").innerHTML = "OK";
+                           document.getElementById("Internet_Status").innerHTML = "Connected..";
                            bInternetStatus = 1;
                            }
                            else
                            {
-                            document.getElementById("Internet_Status").innerHTML = "NOT OK";
+                            document.getElementById("Internet_Status").innerHTML = "Connecting...";
                             bInternetStatus = 0;
                             }
 
@@ -253,10 +256,9 @@
             fetch(`https://api.thingspeak.com/update?api_key=FYHD918T4ZH50R1A&field1=${onOrOff}`)
                 .then(response => response.text())
                 .then(data => {
-                        // document.getElementById("txPowerStatus").innerHTML = data;
-                      //   console.log(data);
-                        if (data == 0) alert("Command failed.  Retry once again after 20 seconds");
-                          else alert("Command Success!! Wait for 20 seconds for the switching to take place")
+
+                      if (data == 0) alert("Command failed.  Retry once again after 20 seconds");
+                          else alert("Command Success!! Wait for 20-30 seconds for the switching to take place")
                     }
                 )
                 .catch((error) => {
