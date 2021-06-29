@@ -107,14 +107,6 @@
         let Entry_ID = 0;
         let bInternetStatus = 0;
 
-        setTimeout(Init, 2);// Required during the startup to intialize the Tx Button depending on the switch status, only ONCE when the app is opened
-        function Init()
-        {
-        //    ReadThingSpeakAPI();
-          //  ButtonEnableDisable();
-          //  document.getElementById("Internet_Status").innerHTML = "Checking";
-           }
-
         setInterval(ReadThingSpeakAPI, 1000);// Event driven REPEAT timer for fetching the data from the ThingSpeak
 
         function ButtonEnableDisable()
