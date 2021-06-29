@@ -17,6 +17,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 
+
 <!-- Stylesheet -->
 <link href="bootstrap.min.css" rel="stylesheet">
 <link href="fs-modal.min.css" rel="stylesheet">
@@ -110,25 +111,21 @@
         function Init()
         {
             ReadThingSpeakAPI();
-            if(bInternetStatus ==1) ButtonEnableDisable();
-            document.getElementById("Internet_Status").innerHTML = "Checking..";
+            ButtonEnableDisable();
+            document.getElementById("Internet_Status").innerHTML = "Checking";
            }
 
         setInterval(ReadThingSpeakAPI, 1000);// Event driven REPEAT timer for fetching the data from the ThingSpeak
 
-        function ButtonEnableDisable()
-        {
-            if (Channel_1_ContactorStatus == 0)
-            {
+        function ButtonEnableDisable() {
+            if (Channel_1_ContactorStatus == 0) {
                 document.getElementById("offbtn").disabled = false;// enables the OFF button
                 document.getElementById("onbtn").disabled = true;// disables the ON button
-            }
-            else if (Channel_1_ContactorStatus == 1)
-            {
+            } else if (Channel_1_ContactorStatus == 1) {
                 document.getElementById("onbtn").disabled = false;// enables the ON button
                 document.getElementById("offbtn").disabled = true;// disables the OFF button
             }
-           }
+        }
 
         function ReadThingSpeakAPI() {
             fetch('https://api.thingspeak.com/channels/1371638/feeds.json?api_key=6JM5T4GQ0TCFSGFT&results=2')
@@ -138,29 +135,17 @@
                         //  document.getElementById("txPowerStatus").innerHTML = obj["feeds"][1]["field2"];
                     //    console.log(data);
                         Channel_1_ContactorStatus = obj["feeds"][1]["field2"];// status of the power contactor
-
-                  if(bInternetStatus == 1)
-                   {
+                    //    console.log(Channel_1_ContactorStatus);
                     if(iCycle == 0)// for flickering effect of the status
                     {
-                        if (Channel_1_ContactorStatus == 0) document.getElementById("txPowerStatus").innerHTML =  "<span class='color-green'>   O F F  </span>";
-                          else if (Channel_1_ContactorStatus == 1) document.getElementById("txPowerStatus").innerHTML = "<span class='color-red'>   O N   </span>";
-
-                          document.getElementById("Internet_Status").innerHTML = "   O K    ";
+                        if (Channel_1_ContactorStatus == 0) document.getElementById("txPowerStatus").innerHTML =  "<span class='color-green'>O F F</span>";
+                          else if (Channel_1_ContactorStatus == 1) document.getElementById("txPowerStatus").innerHTML = "<span class='color-red'>O N</span>";
                         }
                         else if(iCycle == 1)
                         {
-                          if (Channel_1_ContactorStatus == 0) document.getElementById("txPowerStatus").innerHTML =  "<span class='color-cyan'>   O F F  </span>";
-                            else if (Channel_1_ContactorStatus == 1) document.getElementById("txPowerStatus").innerHTML = "<span class='color-cyan'>    O N   </span>";
-                          document.getElementById("Internet_Status").innerHTML = "          ";
-                         }
-                      }
-                      else if(bInternetStatus == 0)
-                      {
-                       document.getElementById("txPowerStatus").innerHTML =  "<span class='color-cyan'>          </span>";
-                       if(iCycle == 0) document.getElementById("Internet_Status").innerHTML = "Checking..";
-                         else document.getElementById("Internet_Status").innerHTML = "          ";
-                      }
+                          if (Channel_1_ContactorStatus == 0) document.getElementById("txPowerStatus").innerHTML =  "<span class='color-cyan'>O F F</span>";
+                            else if (Channel_1_ContactorStatus == 1) document.getElementById("txPowerStatus").innerHTML = "<span class='color-cyan'>O N</span>";
+                          }
 
                         var Temp1 = obj["feeds"][1]["field3"];
                         if(Temp1 == NaN)Temp1 = 0;
@@ -214,7 +199,7 @@
                            document.getElementById("rh2Status").innerHTML = Temp1;
                            }
 
-                      if(bInternetStatus ==1)  ButtonEnableDisable();
+                        ButtonEnableDisable();
 
                        if(iInternet_Check_Cycle == 0)
                        {
@@ -222,12 +207,12 @@
 
                          if (Entry_ID != Prev_Entry_ID)
                          {
-                           document.getElementById("Internet_Status").innerHTML = "   O K    ";
+                           document.getElementById("Internet_Status").innerHTML = "OK";
                            bInternetStatus = 1;
                            }
                            else
                            {
-                            document.getElementById("Internet_Status").innerHTML = "Checking..";
+                            document.getElementById("Internet_Status").innerHTML = "NOT OK";
                             bInternetStatus = 0;
                             }
 
@@ -316,7 +301,7 @@
 
 
 
-    <div class="row top-buffer ">  <!Creates table for the the Transmitter and Internet status display>
+    <div class="row top-buffer ">  <!Creates table for the the Transmitter status display>
         <div class="col"></div>
         <div class="col-lg-3 col-md-6 text-center">
 
@@ -324,11 +309,11 @@
                 <tbody>
                 <tr class="table-danger">
                     <th scope="row" "text-danger">Transmitter status</th>
-                    <td id="txPowerStatus">          </td>
+                    <td id="txPowerStatus"></td>
                 </tr>
                 <tr class="table-warning">
                     <th scope="row" "text-body">Internet@Transmitter</th>
-                    <td id="Internet_Status">         </td>
+                    <td id="Internet_Status"></td>
                 </tr>
                 </tbody>
             </table>
