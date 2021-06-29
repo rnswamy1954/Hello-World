@@ -110,8 +110,8 @@
         setTimeout(Init, 2);// Required during the startup to intialize the Tx Button depending on the switch status, only ONCE when the app is opened
         function Init()
         {
-            ReadThingSpeakAPI();
-            ButtonEnableDisable();
+        //    ReadThingSpeakAPI();
+          //  ButtonEnableDisable();
             document.getElementById("Internet_Status").innerHTML = "Checking";
            }
 
@@ -136,6 +136,9 @@
                     //    console.log(data);
                         Channel_1_ContactorStatus = obj["feeds"][1]["field2"];// status of the power contactor
                     //    console.log(Channel_1_ContactorStatus);
+
+                if(bInternetStatus == 1)
+                {
                     if(iCycle == 0)// for flickering effect of the status
                     {
                         if (Channel_1_ContactorStatus == 0) document.getElementById("txPowerStatus").innerHTML =  "<span class='color-green'>O F F</span>";
@@ -146,6 +149,12 @@
                           if (Channel_1_ContactorStatus == 0) document.getElementById("txPowerStatus").innerHTML =  "<span class='color-cyan'>O F F</span>";
                             else if (Channel_1_ContactorStatus == 1) document.getElementById("txPowerStatus").innerHTML = "<span class='color-cyan'>O N</span>";
                           }
+                    }
+                    else if(bInternetStatus == 0)
+                    {
+                      if(iCycle == 0)document.getElementById("Internet_Status").innerHTML = "Checking...";
+                       else if(iCycle == 1) document.getElementById("Internet_Status").innerHTML = "Checking......";
+                     }
 
                         var Temp1 = obj["feeds"][1]["field3"];
                         if(Temp1 == NaN)Temp1 = 0;
@@ -199,7 +208,7 @@
                            document.getElementById("rh2Status").innerHTML = Temp1;
                            }
 
-                        ButtonEnableDisable();
+                        if(bInternetStatus == 1)ButtonEnableDisable();
 
                        if(iInternet_Check_Cycle == 0)
                        {
@@ -303,16 +312,18 @@
 
     <div class="row top-buffer ">  <!Creates table for the the Transmitter status display>
         <div class="col"></div>
-        <div class="col-lg-3 col-md-6 text-center">
+        <div class="col-lg-3 col-md-6 text-left">
 
-            <table class="table text-center table-bordered table-hover">
+
+
+            <table class="table text-left table-bordered table-hover table-layout: fixed">
                 <tbody>
                 <tr class="table-danger">
-                    <th scope="row" "text-danger">Transmitter status</th>
+                    <th scope="row" "text-danger, style="width: 50%">Transmitter status</th>
                     <td id="txPowerStatus"></td>
                 </tr>
                 <tr class="table-warning">
-                    <th scope="row" "text-body">Internet@Transmitter</th>
+                    <th scope="row" "text-body,text-align:center, style="width: 50%">Internet@Transmitter</th>
                     <td id="Internet_Status"></td>
                 </tr>
                 </tbody>
